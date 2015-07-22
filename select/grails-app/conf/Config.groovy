@@ -118,9 +118,9 @@ log4j.main = {
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'admin.Usuario'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'admin.UsuarioPermissao'
-grails.plugin.springsecurity.authority.className = 'admin.Permissao'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'select.app.Usuario'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'select.app.UsuarioPermissao'
+grails.plugin.springsecurity.authority.className = 'select.app.Permissao'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
 	'/index':           ['permitAll'],
@@ -130,12 +130,21 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
+	
 	'/user/**':	  		['ROLE_ADMIN'],
-	'/role/**':  		['ROLE_ADMIN'],
-	'/dbdoc/**':  		['ROLE_ADMIN'],
-	'/logout/**':  		['ROLE_ADMIN'],
-	'/aclClass/**':  	['ROLE_ADMIN'],
-	'/register/**':  	['ROLE_ADMIN'],
-	'/securityInfo/**': ['ROLE_ADMIN']
+	 '/role/**':  		['ROLE_ADMIN'],
+	 '/dbdoc/**':  		['ROLE_ADMIN'],
+	 '/logout/**':  	['ROLE_ADMIN'],
+	 '/aclClass/**':  	['ROLE_ADMIN'],
+	 '/register/**':  	['ROLE_ADMIN'],
+	 '/securityInfo/**':['ROLE_ADMIN'],
+	 
+	 '/processo/**':	['ROLE_ADMIN'],
+	 '/curso/**':		['ROLE_ADMIN'],
+	 '/campus/**':		['ROLE_ADMIN'],
+	 '/oferta/**':		['ROLE_ADMIN'],
+	 '/sala/**':		['ROLE_ADMIN'],
+	 '/candidato/**':	['ROLE_ADMIN'],
+	 '/inscricao/**':	['ROLE_ADMIN']
 ]
 

@@ -1,6 +1,6 @@
-import admin.Permissao;
-import admin.Usuario;
-import admin.UsuarioPermissao;
+import select.app.Permissao;
+import select.app.Usuario;
+import select.app.UsuarioPermissao;
 
 class BootStrap {
 

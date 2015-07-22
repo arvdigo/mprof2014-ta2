@@ -2,32 +2,35 @@ package select.app
 
 class Candidato {
 	
-	String cpf;
-	String nome;
-	String nome_mae;
-	String rg;
-	String rua;
-	String cidade;
-	String estado;
-	int cep;
-	String complemento;
-	int numero;
-	String bairro;
-	String estado_civil;
-	String telefone;
-	Date data_nascimento;
-	String cidade_nascimento;
-	String nacionalidade;
-	String email;
-	String sexo;
+	String cpf
+	String nome	
+	String nome_mae
+	String rg
+	String cep
+	String logradouro
+	String cidade
+	String bairro
+	String estado
+	String complemento
+	String numero
+	String estado_civil
+	String telefone
+	Date data_nascimento
+	String cidade_nascimento
+	String nacionalidade
+	String email
+	String sexo
 	
+	Usuario usuario
 	
-    static constraints = {
+	static hasMany = [inscricoes:Inscricao]
+	
+	static constraints = {
 		cpf(nullable:false, blank:false)
 		nome(nullable:false, blank:false)
 		nome_mae(nullable:false, blank:false)
 		rg(nullable:false, blank:false)
-		rua(nullable:false, blank:false)
+		logradouro(nullable:false, blank:false)
 		cidade(nullable:false, blank:false)
 		estado(nullable:false, blank:false)
 		cep(nullable:false, blank:false)
