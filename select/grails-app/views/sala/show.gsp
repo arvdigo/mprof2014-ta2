@@ -52,6 +52,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${salaInstance?.vagas}">
+				<li class="fieldcontain">
+					<span id="vagas-label" class="property-label"><g:message code="sala.vagas.label" default="Vagas" /></span>
+					
+						<span class="property-value" aria-labelledby="vagas-label"><g:fieldValue bean="${salaInstance}" field="vagas"/></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:salaInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

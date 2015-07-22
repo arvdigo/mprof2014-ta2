@@ -38,3 +38,12 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: salaInstance, field: 'vagas', 'error')} required">
+	<label for="vagas">
+		<g:message code="sala.vagas.label" default="Vagas" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="vagas" type="number" value="${salaInstance.vagas}" required=""/>
+
+</div>
+
