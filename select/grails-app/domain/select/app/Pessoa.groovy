@@ -1,6 +1,6 @@
 package select.app
 
-class Candidato {
+class Pessoa {
 	
 	String cpf
 	String nome	

@@ -6,25 +6,25 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class CandidatoController {
+class PessoaController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Candidato.list(params), model:[candidatoInstanceCount: Candidato.count()]
+        respond Pessoa.list(params), model:[candidatoInstanceCount: Pessoa.count()]
     }
 
-    def show(Candidato candidatoInstance) {
+    def show(Pessoa candidatoInstance) {
         respond candidatoInstance
     }
 
     def create() {
-        respond new Candidato(params)
+        respond new Pessoa(params)
     }
 
     @Transactional
-    def save(Candidato candidatoInstance) {
+    def save(Pessoa candidatoInstance) {
         if (candidatoInstance == null) {
             notFound()
             return
@@ -46,12 +46,12 @@ class CandidatoController {
         }
     }
 
-    def edit(Candidato candidatoInstance) {
+    def edit(Pessoa candidatoInstance) {
         respond candidatoInstance
     }
 
     @Transactional
-    def update(Candidato candidatoInstance) {
+    def update(Pessoa candidatoInstance) {
         if (candidatoInstance == null) {
             notFound()
             return
@@ -74,7 +74,7 @@ class CandidatoController {
     }
 
     @Transactional
-    def delete(Candidato candidatoInstance) {
+    def delete(Pessoa candidatoInstance) {
 
         if (candidatoInstance == null) {
             notFound()

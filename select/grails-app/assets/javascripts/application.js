@@ -7,6 +7,7 @@
 //
 //= require jquery
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require checkboxes
 //= require_tree .
 //= require_self
@@ -16,7 +17,9 @@ if (typeof jQuery !== 'undefined') {
 		/**
 		 * Activate Datepicker for Bootstrap
 		 */
-		//$(".datepicker").datepicker();
+		$(".datepicker").datepicker({
+			language: "pt-BR"
+		});
 		
 		/**
 		 * Close Dropdown menus when user clicks outside a menu (on the body)

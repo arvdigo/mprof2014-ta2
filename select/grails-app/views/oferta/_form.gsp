@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: ofertaInstance, field: 'vagas', 'error')} required">
+<div class="form-group ${hasErrors(bean: ofertaInstance, field: 'vagas', 'error')} required">
 	<label for="vagas">
 		<g:message code="oferta.vagas.label" default="Vagas" />
 		<span class="required-indicator">*</span>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ofertaInstance, field: 'valor', 'error')} required">
+<div class="form-group ${hasErrors(bean: ofertaInstance, field: 'valor', 'error')} required">
 	<label for="valor">
 		<g:message code="oferta.valor.label" default="Valor" />
 		<span class="required-indicator">*</span>
@@ -20,7 +20,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ofertaInstance, field: 'campus', 'error')} required">
+<div class="form-group ${hasErrors(bean: ofertaInstance, field: 'campus', 'error')} required">
 	<label for="campus">
 		<g:message code="oferta.campus.label" default="Campus" />
 		<span class="required-indicator">*</span>
@@ -29,7 +29,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ofertaInstance, field: 'curso', 'error')} required">
+<div class="form-group ${hasErrors(bean: ofertaInstance, field: 'curso', 'error')} required">
 	<label for="curso">
 		<g:message code="oferta.curso.label" default="Curso" />
 		<span class="required-indicator">*</span>
@@ -38,7 +38,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: ofertaInstance, field: 'processo', 'error')} required">
+<div class="form-group ${hasErrors(bean: ofertaInstance, field: 'processo', 'error')} required">
 	<label for="processo">
 		<g:message code="oferta.processo.label" default="Processo" />
 		<span class="required-indicator">*</span>

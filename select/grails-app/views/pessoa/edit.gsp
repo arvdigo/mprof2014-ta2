@@ -1,4 +1,4 @@
-<%@ page import="select.app.Candidato" %>
+<%@ page import="select.app.Pessoa" %>
 <!DOCTYPE html>
 <html>
 	<head>

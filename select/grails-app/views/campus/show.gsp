@@ -9,7 +9,6 @@
 	</head>
 	<body>
 		<section id="show-campus" class="first">
-
 			<table class="table">
 			<tbody>
 			
@@ -26,6 +25,34 @@
 					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="cep"/></td>	
 				</tr>
 				</g:if>
+				
+				<g:if test="${campusInstance?.logradouro}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="campus.logradouro.label" default="Logradouro" /></td>
+					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="logradouro"/></td>
+				</tr>
+				</g:if>
+			
+				<g:if test="${campusInstance?.numero}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="campus.numero.label" default="Numero" /></td>
+					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="numero"/></td>
+				</tr>
+				</g:if>
+				
+				<g:if test="${campusInstance?.complemento}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="campus.complemento.label" default="Complemento" /></td>
+					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="complemento"/></td>	
+				</tr>
+				</g:if>
+			
+				<g:if test="${campusInstance?.bairro}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="campus.bairro.label" default="Bairro" /></td>
+					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="bairro"/></td>
+				</tr>
+				</g:if>
 			
 				<g:if test="${campusInstance?.cidade}">
 				<tr class="prop">
@@ -38,38 +65,6 @@
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="campus.estado.label" default="Estado" /></td>
 					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="estado"/></td>	
-				</tr>
-				</g:if>
-			
-				<g:if test="${campusInstance?.endereco}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="campus.endereco.label" default="Endereco" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="endereco"/></td>
-					
-				</tr>
-				</g:if>
-			
-				<g:if test="${campusInstance?.complemento}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="campus.complemento.label" default="Complemento" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="complemento"/></td>
-					
-				</tr>
-				</g:if>
-			
-				<g:if test="${campusInstance?.numero}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="campus.numero.label" default="Numero" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="numero"/></td>
-					
-				</tr>
-				</g:if>
-			
-				<g:if test="${campusInstance?.bairro}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="campus.bairro.label" default="Bairro" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${campusInstance}" field="bairro"/></td>
-					
 				</tr>
 				</g:if>
 			

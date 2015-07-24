@@ -4,9 +4,10 @@ class Inscricao {
 	
 	Date data
 	double nota
+	boolean confirmado
 	
 	Oferta oferta
-	Candidato candidato
+	Pessoa candidato
 	Sala sala
 
     static constraints = {

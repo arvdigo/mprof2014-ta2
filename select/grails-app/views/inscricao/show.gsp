@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="candidato-label" class="property-label"><g:message code="inscricao.candidato.label" default="Candidato" /></span>
 					
-						<span class="property-value" aria-labelledby="candidato-label"><g:link controller="candidato" action="show" id="${inscricaoInstance?.candidato?.id}">${inscricaoInstance?.candidato?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="candidato-label"><g:link controller="pessoa" action="show" id="${inscricaoInstance?.candidato?.id}">${inscricaoInstance?.candidato?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

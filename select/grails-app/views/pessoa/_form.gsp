@@ -1,8 +1,8 @@
-<%@ page import="select.app.Candidato" %>
+<%@ page import="select.app.Pessoa" %>
 
 
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
 	<label for="cpf">
 		<g:message code="candidato.cpf.label" default="Cpf" />
 		<span class="required-indicator">*</span>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nome', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'nome', 'error')} required">
 	<label for="nome">
 		<g:message code="candidato.nome.label" default="Nome" />
 		<span class="required-indicator">*</span>
@@ -20,7 +20,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nome_mae', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'nome_mae', 'error')} required">
 	<label for="nome_mae">
 		<g:message code="candidato.nome_mae.label" default="Nomemae" />
 		<span class="required-indicator">*</span>
@@ -29,7 +29,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'rg', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'rg', 'error')} required">
 	<label for="rg">
 		<g:message code="candidato.rg.label" default="Rg" />
 		<span class="required-indicator">*</span>
@@ -38,7 +38,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'logradouro', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'logradouro', 'error')} required">
 	<label for="logradouro">
 		<g:message code="candidato.logradouro.label" default="Logradouro" />
 		<span class="required-indicator">*</span>
@@ -47,7 +47,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cidade', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'cidade', 'error')} required">
 	<label for="cidade">
 		<g:message code="candidato.cidade.label" default="Cidade" />
 		<span class="required-indicator">*</span>
@@ -56,7 +56,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'estado', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'estado', 'error')} required">
 	<label for="estado">
 		<g:message code="candidato.estado.label" default="Estado" />
 		<span class="required-indicator">*</span>
@@ -65,7 +65,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
 	<label for="cep">
 		<g:message code="candidato.cep.label" default="Cep" />
 		<span class="required-indicator">*</span>
@@ -74,7 +74,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
 	<label for="complemento">
 		<g:message code="candidato.complemento.label" default="Complemento" />
 		<span class="required-indicator">*</span>
@@ -83,7 +83,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} required">
 	<label for="numero">
 		<g:message code="candidato.numero.label" default="Numero" />
 		<span class="required-indicator">*</span>
@@ -92,7 +92,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'bairro', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'bairro', 'error')} required">
 	<label for="bairro">
 		<g:message code="candidato.bairro.label" default="Bairro" />
 		<span class="required-indicator">*</span>
@@ -101,7 +101,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'estado_civil', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'estado_civil', 'error')} required">
 	<label for="estado_civil">
 		<g:message code="candidato.estado_civil.label" default="Estadocivil" />
 		<span class="required-indicator">*</span>
@@ -110,7 +110,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'telefone', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'telefone', 'error')} required">
 	<label for="telefone">
 		<g:message code="candidato.telefone.label" default="Telefone" />
 		<span class="required-indicator">*</span>
@@ -119,7 +119,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'data_nascimento', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'data_nascimento', 'error')} required">
 	<label for="data_nascimento">
 		<g:message code="candidato.data_nascimento.label" default="Datanascimento" />
 		<span class="required-indicator">*</span>
@@ -128,7 +128,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cidade_nascimento', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'cidade_nascimento', 'error')} required">
 	<label for="cidade_nascimento">
 		<g:message code="candidato.cidade_nascimento.label" default="Cidadenascimento" />
 		<span class="required-indicator">*</span>
@@ -137,7 +137,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nacionalidade', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'nacionalidade', 'error')} required">
 	<label for="nacionalidade">
 		<g:message code="candidato.nacionalidade.label" default="Nacionalidade" />
 		<span class="required-indicator">*</span>
@@ -146,7 +146,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
 	<label for="email">
 		<g:message code="candidato.email.label" default="Email" />
 		<span class="required-indicator">*</span>
@@ -155,7 +155,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'sexo', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'sexo', 'error')} required">
 	<label for="sexo">
 		<g:message code="candidato.sexo.label" default="Sexo" />
 		<span class="required-indicator">*</span>
@@ -164,7 +164,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'inscricoes', 'error')} ">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'inscricoes', 'error')} ">
 	<label for="inscricoes">
 		<g:message code="candidato.inscricoes.label" default="Inscricoes" />
 		
@@ -182,7 +182,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'usuario', 'error')} required">
+<div class="form-group ${hasErrors(bean: candidatoInstance, field: 'usuario', 'error')} required">
 	<label for="usuario">
 		<g:message code="candidato.usuario.label" default="Usuario" />
 		<span class="required-indicator">*</span>

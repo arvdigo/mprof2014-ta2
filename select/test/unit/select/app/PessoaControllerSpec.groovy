@@ -5,9 +5,9 @@ package select.app
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(CandidatoController)
-@Mock(Candidato)
-class CandidatoControllerSpec extends Specification {
+@TestFor(PessoaController)
+@Mock(Pessoa)
+class PessoaControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class CandidatoControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.candidatoInstanceList
-            model.candidatoInstanceCount == 0
+            !model.pessoaInstanceList
+            model.pessoaInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class CandidatoControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.candidatoInstance!= null
+            model.pessoaInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class CandidatoControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def candidato = new Candidato()
-            candidato.validate()
-            controller.save(candidato)
+            def pessoa = new Pessoa()
+            pessoa.validate()
+            controller.save(pessoa)
 
         then:"The create view is rendered again with the correct model"
-            model.candidatoInstance!= null
+            model.pessoaInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            candidato = new Candidato(params)
+            pessoa = new Pessoa(params)
 
-            controller.save(candidato)
+            controller.save(pessoa)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/candidato/show/1'
+            response.redirectedUrl == '/pessoa/show/1'
             controller.flash.message != null
-            Candidato.count() == 1
+            Pessoa.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class CandidatoControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def candidato = new Candidato(params)
-            controller.show(candidato)
+            def pessoa = new Pessoa(params)
+            controller.show(pessoa)
 
         then:"A model is populated containing the domain instance"
-            model.candidatoInstance == candidato
+            model.pessoaInstance == pessoa
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class CandidatoControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def candidato = new Candidato(params)
-            controller.edit(candidato)
+            def pessoa = new Pessoa(params)
+            controller.edit(pessoa)
 
         then:"A model is populated containing the domain instance"
-            model.candidatoInstance == candidato
+            model.pessoaInstance == pessoa
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class CandidatoControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/candidato/index'
+            response.redirectedUrl == '/pessoa/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def candidato = new Candidato()
-            candidato.validate()
-            controller.update(candidato)
+            def pessoa = new Pessoa()
+            pessoa.validate()
+            controller.update(pessoa)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.candidatoInstance == candidato
+            model.pessoaInstance == pessoa
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            candidato = new Candidato(params).save(flush: true)
-            controller.update(candidato)
+            pessoa = new Pessoa(params).save(flush: true)
+            controller.update(pessoa)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/candidato/show/$candidato.id"
+            response.redirectedUrl == "/pessoa/show/$pessoa.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class CandidatoControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/candidato/index'
+            response.redirectedUrl == '/pessoa/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def candidato = new Candidato(params).save(flush: true)
+            def pessoa = new Pessoa(params).save(flush: true)
 
         then:"It exists"
-            Candidato.count() == 1
+            Pessoa.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(candidato)
+            controller.delete(pessoa)
 
         then:"The instance is deleted"
-            Candidato.count() == 0
-            response.redirectedUrl == '/candidato/index'
+            Pessoa.count() == 0
+            response.redirectedUrl == '/pessoa/index'
             flash.message != null
     }
 }

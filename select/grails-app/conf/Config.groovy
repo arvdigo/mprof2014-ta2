@@ -150,3 +150,4 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 grails.plugins.twitterbootstrap.fixtaglib = true
+grails.databinding.dateFormats = ['dd/MM/yyyy','yyyy-MM-dd', 'yyyy-MM-dd HH:mm:ss.S', "yyyy-MM-dd'T'hh:mm:ss'Z'"]

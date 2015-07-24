@@ -1,6 +1,6 @@
 <%@ page import="select.app.Sala" %>
 
-<div class="fieldcontain ${hasErrors(bean: salaInstance, field: 'campus', 'error')} required">
+<div class="form-group ${hasErrors(bean: salaInstance, field: 'campus', 'error')} required">
 	<label for="campus" class="control-label">
 		<g:message code="sala.campus.label" default="Campus" />
 		<span class="required-indicator">*</span>
@@ -9,7 +9,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: salaInstance, field: 'descricao', 'error')} required">
+<div class="form-group ${hasErrors(bean: salaInstance, field: 'descricao', 'error')} required">
 	<label for="descricao" class="control-label">
 		<g:message code="sala.descricao.label" default="Descricao" />
 		<span class="required-indicator">*</span>
@@ -18,7 +18,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: salaInstance, field: 'vagas', 'error')} required">
+<div class="form-group ${hasErrors(bean: salaInstance, field: 'vagas', 'error')} required">
 	<label for="vagas" class="control-label">
 		<g:message code="sala.vagas.label" default="Vagas" />
 		<span class="required-indicator">*</span>
