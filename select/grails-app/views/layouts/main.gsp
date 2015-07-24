@@ -17,9 +17,32 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		<g:render template="/layouts/_menu/navbar"/>
+		<header id="Header" class="jumbotron masthead">
+			<div class="container">
+			<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
+			</div>
+		</header>
+	
+		<div id="Content" class="container">
+			<!-- Main menu in one row (e.g., controller entry points -->
+			<g:if test="${!layout_nomainmenu}">
+				<g:render template="/layouts/_menu/menubar"/>
+			</g:if>
+			
+			<!-- Secondary menu in one row (e.g., actions for current controller) -->
+			<g:if test="${!layout_nosecondarymenu}">
+				<g:render template="/layouts/_menu/submenubar"/>														
+			</g:if>
+		
+			<!-- print system messages (infos, warnings, etc) - not validation errors -->
+			<g:if test="${flash.message && !layout_noflashmessage}">
+				<div class="alert alert-info">${flash.message}</div>
+			</g:if>
+		
+			<!-- Show page's content -->
+			<g:layoutBody />
+			<g:pageProperty name="page.body" />
+		</div>	
 	</body>
 </html>

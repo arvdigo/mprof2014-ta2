@@ -6,6 +6,9 @@ class UrlMappings {
                 // apply constraints here
             }
         }
+		
+		"/login"(view:"/login/auth")
+		"/denied"(view:"/login/denied")
 
         "/"(view:"/index")
         "500"(view:'/error')

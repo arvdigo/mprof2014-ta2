@@ -145,6 +145,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	 '/oferta/**':		['ROLE_ADMIN'],
 	 '/sala/**':		['ROLE_ADMIN'],
 	 '/candidato/**':	['ROLE_ADMIN'],
-	 '/inscricao/**':	['ROLE_ADMIN']
+	 '/inscricao/**':	['ROLE_ADMIN'],
+	 '/search/**':		['ROLE_ADMIN']
 ]
 
+grails.plugins.twitterbootstrap.fixtaglib = true

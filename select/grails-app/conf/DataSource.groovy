@@ -19,7 +19,7 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://200.131.165.188:5432/db_select"
+            url = "jdbc:postgresql://localhost:5432/db_select"
         }
     }
     test {
