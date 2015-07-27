@@ -8,7 +8,8 @@ class UrlMappings {
         }
 		
 		"/login"(view:"/login/auth")
-		"/denied"(view:"/login/denied")
+		"/denied"(view:"/login/denied")				
+		"/login/ajaxSuccess"(view:"/index")
 
         "/"(view:"/index")
         "500"(view:'/error')

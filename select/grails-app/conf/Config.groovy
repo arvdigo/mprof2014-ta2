@@ -123,31 +123,32 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'select.app.Usu
 grails.plugin.springsecurity.authority.className = 'select.app.Permissao'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
-	'/index':           ['permitAll'],
-	'/index.gsp':       ['permitAll'],
+	'/index':           ['ROLE_ADMIN', 'ROLE_ACADEMICO'],
+	'/index.gsp':       ['ROLE_ADMIN', 'ROLE_ACADEMICO'],
 	'/assets/**':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
+	'/inicio/equipe':	['permitAll'],
+	'/inicio/sobre':	['permitAll'],
 	
 	'/user/**':	  		['ROLE_ADMIN'],
-	 '/role/**':  		['ROLE_ADMIN'],
-	 '/dbdoc/**':  		['ROLE_ADMIN'],
-	 '/logout/**':  	['ROLE_ADMIN'],
-	 '/aclClass/**':  	['ROLE_ADMIN'],
-	 '/register/**':  	['ROLE_ADMIN'],
-	 '/securityInfo/**':['ROLE_ADMIN'],
-	 
+	'/role/**':  		['ROLE_ADMIN'],
+	'/dbdoc/**':  		['ROLE_ADMIN'],
+	'/logout/**':  		['ROLE_ADMIN'],
+	'/inicio/**':		['ROLE_ADMIN'],
+	
 	 '/processo/**':	['ROLE_ADMIN'],
 	 '/curso/**':		['ROLE_ADMIN'],
 	 '/campus/**':		['ROLE_ADMIN'],
 	 '/oferta/**':		['ROLE_ADMIN'],
 	 '/sala/**':		['ROLE_ADMIN'],
-	 '/pessoa/**':	['ROLE_ADMIN'],
+	 '/pessoa/**':		['ROLE_ADMIN'],
 	 '/inscricao/**':	['ROLE_ADMIN'],
 	 '/search/**':		['ROLE_ADMIN']
 ]
 
 grails.plugins.twitterbootstrap.fixtaglib = true
 grails.databinding.dateFormats = ['dd/MM/yyyy','yyyy-MM-dd', 'yyyy-MM-dd HH:mm:ss.S', "yyyy-MM-dd'T'hh:mm:ss'Z'"]
+

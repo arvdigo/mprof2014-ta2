@@ -18,18 +18,19 @@
 	</head>
 	<body>
 		<g:render template="/layouts/_menu/navbar"/>
-		<header id="Header" class="jumbotron masthead">
+		<header id="Header" class="page-header">
 			<div class="container">
 			<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
 			</div>
 		</header>
-	
+				
 		<div id="Content" class="container">
-			<!-- Main menu in one row (e.g., controller entry points -->
+			
+			<!-- Main menu in one row (e.g., controller entry points 
 			<g:if test="${!layout_nomainmenu}">
 				<g:render template="/layouts/_menu/menubar"/>
 			</g:if>
-			
+			-->
 			<!-- Secondary menu in one row (e.g., actions for current controller) -->
 			<g:if test="${!layout_nosecondarymenu}">
 				<g:render template="/layouts/_menu/submenubar"/>														
@@ -39,10 +40,11 @@
 			<g:if test="${flash.message && !layout_noflashmessage}">
 				<div class="alert alert-info">${flash.message}</div>
 			</g:if>
-		
+					
 			<!-- Show page's content -->
 			<g:layoutBody />
 			<g:pageProperty name="page.body" />
-		</div>	
+		</div>
+			
 	</body>
 </html>
