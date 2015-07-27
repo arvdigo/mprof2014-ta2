@@ -144,7 +144,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	 '/campus/**':		['ROLE_ADMIN'],
 	 '/oferta/**':		['ROLE_ADMIN'],
 	 '/sala/**':		['ROLE_ADMIN'],
-	 '/candidato/**':	['ROLE_ADMIN'],
+	 '/pessoa/**':	['ROLE_ADMIN'],
 	 '/inscricao/**':	['ROLE_ADMIN'],
 	 '/search/**':		['ROLE_ADMIN']
 ]
