@@ -1,4 +1,6 @@
-<%@ page import="select.app.Pessoa" %>
+<%@page import="select.EstadoCivil"%>
+<%@page import="select.Sexo"%>
+<%@page import="select.app.Pessoa" %>
 
 <fieldset>
 <legend>Identificação:</legend>
@@ -40,7 +42,7 @@
 			<g:message code="pessoa.estado_civil.label" default="Estadocivil" />
 			<span class="required-indicator">*</span>
 		</label>
-		<g:textField class="form-control" name="estado_civil" required="" value="${pessoaInstance?.estado_civil}"/>
+		<g:select class="form-control" name="estado_civil" required="" noSelection="${['null':'Selecione...']}" from="${EstadoCivil}" value="${pessoaInstance?.estado_civil}"/>
 	</div>
 	
 	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'data_nascimento', 'error')} required">
@@ -66,7 +68,7 @@
 			<g:message code="pessoa.sexo.label" default="Sexo" />
 			<span class="required-indicator">*</span>
 		</label>
-		<g:textField class="form-control" name="sexo" required="" value="${pessoaInstance?.sexo}"/>
+		<g:select class="form-control" name="sexo" required="" noSelection="${['null':'Selecione...']}" from="${Sexo}" value="${pessoaInstance?.sexo}"/>
 	</div>
 
 	
