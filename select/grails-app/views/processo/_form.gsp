@@ -6,25 +6,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field class="form-control" name="ano" type="number" value="${processoInstance.ano}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'data_final', 'error')} required">
-	<label for="data_final" class="control-label">
-		<g:message code="processo.data_final.label" default="Datafinal" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field class="datepicker form-control" type="none"  name="data_final" precision="day"  value="${processoInstance?.data_final}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'data_inicial', 'error')} required">
-	<label for="data_inicial" class="control-label">
-		<g:message code="processo.data_inicial.label" default="Datainicial" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field class="datepicker form-control" type="none" name="data_inicial" precision="day"  value="${processoInstance?.data_inicial}"  />
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'descricao', 'error')} required">
@@ -42,6 +23,21 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField class="form-control" name="edital" required="" value="${processoInstance?.edital}"/>
+</div>
 
+<div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'data_inicial', 'error')} required">
+	<label for="data_inicial" class="control-label">
+		<g:message code="processo.data_inicial.label" default="Datainicial" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field class="datepicker form-control" type="none" name="data_inicial" precision="day"  value="${processoInstance?.data_inicial}"  />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'data_final', 'error')}">
+	<label for="data_final" class="control-label">
+		<g:message code="processo.data_final.label" default="Datafinal" />
+	</label>
+	<g:field class="datepicker form-control" type="none"  name="data_final" precision="day"  value="${processoInstance?.data_final}"  />
 </div>
 

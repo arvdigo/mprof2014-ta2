@@ -113,7 +113,6 @@
 	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'numero', 'error')} required">
 		<label for="numero" class="control-label">
 			<g:message code="pessoa.numero.label" default="Numero" />
-			<span class="required-indicator">*</span>
 		</label>
 		<g:textField class="form-control" name="numero" required="" value="${pessoaInstance?.numero}"/>
 	</div>
@@ -121,7 +120,6 @@
 	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'complemento', 'error')} required">
 		<label for="complemento" class="control-label">
 			<g:message code="pessoa.complemento.label" default="Complemento" />
-			<span class="required-indicator">*</span>
 		</label>
 		<g:textField class="form-control" name="complemento" required="" value="${pessoaInstance?.complemento}"/>
 	</div>

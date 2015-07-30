@@ -12,11 +12,11 @@ class PessoaController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Pessoa.list(params), model:[candidatoInstanceCount: Pessoa.count()]
+        respond Pessoa.list(params), model:[pessoaInstanceCount: Pessoa.count()]
     }
 
-    def show(Pessoa candidatoInstance) {
-        respond candidatoInstance
+    def show(Pessoa pessoaInstance) {
+        respond pessoaInstance
     }
 
     def create() {
@@ -24,68 +24,68 @@ class PessoaController {
     }
 
     @Transactional
-    def save(Pessoa candidatoInstance) {
-        if (candidatoInstance == null) {
+    def save(Pessoa pessoaInstance) {
+        if (pessoaInstance == null) {
             notFound()
             return
         }
 
-        if (candidatoInstance.hasErrors()) {
-            respond candidatoInstance.errors, view:'create'
+        if (pessoaInstance.hasErrors()) {
+            respond pessoaInstance.errors, view:'create'
             return
         }
 
-        candidatoInstance.save flush:true
+        pessoaInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'candidato.label', default: 'Candidato'), candidatoInstance.id])
-                redirect candidatoInstance
+                flash.message = message(code: 'default.created.message', args: [message(code: 'pessoa.label', default: 'Pessoa'), pessoaInstance.id])
+                redirect pessoaInstance
             }
-            '*' { respond candidatoInstance, [status: CREATED] }
+            '*' { respond pessoaInstance, [status: CREATED] }
         }
     }
 
-    def edit(Pessoa candidatoInstance) {
-        respond candidatoInstance
+    def edit(Pessoa pessoaInstance) {
+        respond pessoaInstance
     }
 
     @Transactional
-    def update(Pessoa candidatoInstance) {
-        if (candidatoInstance == null) {
+    def update(Pessoa pessoaInstance) {
+        if (pessoaInstance == null) {
             notFound()
             return
         }
 
-        if (candidatoInstance.hasErrors()) {
-            respond candidatoInstance.errors, view:'edit'
+        if (pessoaInstance.hasErrors()) {
+            respond pessoaInstance.errors, view:'edit'
             return
         }
 
-        candidatoInstance.save flush:true
+        pessoaInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Candidato.label', default: 'Candidato'), candidatoInstance.id])
-                redirect candidatoInstance
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Pessoa.label', default: 'Pessoa'), pessoaInstance.id])
+                redirect pessoaInstance
             }
-            '*'{ respond candidatoInstance, [status: OK] }
+            '*'{ respond pessoaInstance, [status: OK] }
         }
     }
 
     @Transactional
-    def delete(Pessoa candidatoInstance) {
+    def delete(Pessoa pessoaInstance) {
 
-        if (candidatoInstance == null) {
+        if (pessoaInstance == null) {
             notFound()
             return
         }
 
-        candidatoInstance.delete flush:true
+        pessoaInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Candidato.label', default: 'Candidato'), candidatoInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Pessoa.label', default: 'Pessoa'), pessoaInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +95,7 @@ class PessoaController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'candidato.label', default: 'Candidato'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'pessoa.label', default: 'Pessoa'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

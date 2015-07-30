@@ -19,20 +19,6 @@
 				</tr>
 				</g:if>
 			
-				<g:if test="${processoInstance?.data_final}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="processo.data_final.label" default="Datafinal" /></td>
-					<td valign="top" class="value"><g:formatDate date="${processoInstance?.data_final}" /></td>
-				</tr>
-				</g:if>
-			
-				<g:if test="${processoInstance?.data_inicial}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="processo.data_inicial.label" default="Datainicial" /></td>
-					<td valign="top" class="value"><g:formatDate date="${processoInstance?.data_inicial}" /></td>
-				</tr>
-				</g:if>
-			
 				<g:if test="${processoInstance?.descricao}">
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="processo.descricao.label" default="Descricao" /></td>
@@ -46,6 +32,20 @@
 					<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="edital"/></td>
 				</tr>
 				</g:if>
+			
+				<g:if test="${processoInstance?.data_inicial}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="processo.data_inicial.label" default="Datainicial" /></td>
+					<td valign="top" class="value"><g:formatDate date="${processoInstance?.data_inicial}" /></td>
+				</tr>
+				</g:if>
+			
+				<g:if test="${processoInstance?.data_final}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="processo.data_final.label" default="Datafinal" /></td>
+					<td valign="top" class="value"><g:formatDate date="${processoInstance?.data_final}" /></td>
+				</tr>
+				</g:if>						
 			
 				<g:if test="${processoInstance?.ofertas}">
 				<tr class="prop">

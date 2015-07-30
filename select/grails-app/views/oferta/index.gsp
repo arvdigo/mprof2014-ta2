@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<section id="index-oferta" class="first">
-			<table>
+			<table class="table table-bordered margin-top-medium">
 				<thead>
 					<tr>					
 						<g:sortableColumn property="vagas" title="${message(code: 'oferta.vagas.label', default: 'Vagas')}" />
