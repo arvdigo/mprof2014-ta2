@@ -18,7 +18,8 @@ if (typeof jQuery !== 'undefined') {
 		 * Activate Datepicker for Bootstrap
 		 */
 		$(".datepicker").datepicker({
-			language: "pt-BR"
+			language: "pt-BR",
+		    format: 'dd/mm/yyyy'
 		});
 		
 		/**

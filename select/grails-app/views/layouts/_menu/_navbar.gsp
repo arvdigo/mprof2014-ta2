@@ -8,19 +8,22 @@
 	           	<span class="icon-bar"></span>
 	           	<span class="icon-bar"></span>
 			</button>	
-			<a class="navbar-brand" href="${createLink(uri: '/')}">
-				SELECT
-			</a>
 		</div>
 		
 		<sec:ifLoggedIn>
 		<div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
 			<ul class="nav navbar-nav">
-				<g:render template="/layouts/_menu/controller"/>
+			<li>
+				<a href="${createLink(uri: '/')}"><i class="glyphicon glyphicon-home"></i> Inicio 
+				
+				</a>
+			</li>
+				<sec:ifAnyGranted roles="ROLE_ADMIN">				
+					<g:render template="/layouts/_menu/controller"/>				
+				</sec:ifAnyGranted>	
 			</ul>
-	
 	    	<ul class="nav navbar-nav navbar-right">
-	 			<g:render template="/layouts/_menu/search"/> 												
+	 			<!--<g:render template="/layouts/_menu/search"/>--> 												
 				<g:render template="/layouts/_menu/info"/>
 				<g:render template="/layouts/_menu/user"/>																												
 		    </ul>			
