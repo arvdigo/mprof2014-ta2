@@ -28,4 +28,8 @@ class Campus {
 		cidade(nullable:true, blank:true)
 		estado(nullable:true, blank:true)
     }
+	
+	static mapping = {
+		version false
+	}
 }

@@ -7,19 +7,21 @@ class Inscricao {
 	boolean confirmado
 	
 	Oferta oferta
-	Pessoa candidato
+	Pessoa pessoa
 	Sala sala
 
-	Inscricao(Date data, double nota, boolean confirmado, Oferta oferta, Pessoa candidato, Sala sala) {
+	Inscricao(Date data, double nota, boolean confirmado, Oferta oferta, Pessoa pessoa, Sala sala) {
 		this()
 		this.data = data
 		this.nota = nota
 		this.confirmado = confirmado
 		this.oferta = oferta
-		this.candidato = candidato
+		this.pessoa = pessoa
 		this.sala = sala
 	}
 	
     static constraints = {
+		nota(nullable:true, blank:true)
+		sala(nullable:true, blank:true)
     }
 }

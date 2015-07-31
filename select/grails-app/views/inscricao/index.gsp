@@ -12,7 +12,7 @@
 		<table class="table table-bordered margin-top-medium">
 			<thead>
 					<tr>					
-						<th><g:message code="inscricao.candidato.label" default="Candidato" /></th>
+						<th><g:message code="inscricao.pessoa.label" default="Pessoa" /></th>
 						<th><g:message code="inscricao.oferta.label" default="Oferta" /></th>
 						<th><g:message code="inscricao.sala.label" default="Sala" /></th>
 					</tr>
@@ -20,7 +20,7 @@
 				<tbody>
 				<g:each in="${inscricaoInstanceList}" status="i" var="inscricaoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "candidato")}</g:link></td>
+						<td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "pessoa")}</g:link></td>
 						<td>${fieldValue(bean: inscricaoInstance, field: "oferta")}</td>
 						<td>${fieldValue(bean: inscricaoInstance, field: "sala")}</td>
 						</tr>
@@ -28,7 +28,7 @@
 				</tbody>
 			</table>
 			<div>
-				<g:paginate total="${campusInstanceCount ?: 0}" />
+				<g:paginate total="${inscricaoInstanceCount ?: 0}" />
 			</div>
 		</section>
 	</body>

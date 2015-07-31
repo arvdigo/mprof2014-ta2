@@ -12,10 +12,10 @@
 			<table class="table">
 			<tbody>
 			
-				<g:if test="${inscricaoInstance?.candidato}">
+				<g:if test="${inscricaoInstance?.pessoa}">
 				<tr class="prop">
-					<td valign="top" class="name"><g:message code="inscricao.candidato.label" default="Candidato" /></td>
-					<td valign="top" class="value"><g:link controller="pessoa" action="show" id="${inscricaoInstance?.candidato?.id}">${inscricaoInstance?.candidato?.encodeAsHTML()}</g:link></td>	
+					<td valign="top" class="name"><g:message code="inscricao.pessoa.label" default="Pessoa" /></td>
+					<td valign="top" class="value"><g:link controller="pessoa" action="show" id="${inscricaoInstance?.pessoa?.id}">${inscricaoInstance?.pessoa?.encodeAsHTML()}</g:link></td>	
 				</tr>
 				</g:if>
 			

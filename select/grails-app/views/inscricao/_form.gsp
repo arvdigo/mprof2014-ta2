@@ -1,10 +1,10 @@
 <%@ page import="select.app.Inscricao" %>
 
 <div class="form-group ${hasErrors(bean: inscricaoInstance, field: 'candidato', 'error')} required">
-	<label for="candidato" class="control-label">
-		<g:message code="inscricao.candidato.label" default="Candidato" />
+	<label for="pessoa" class="control-label">
+		<g:message code="inscricao.pessoa.label" default="Pessoa" />
 	</label>
-	<g:textField class="form-control" id="candidato" name="candidato.id"  value="${inscricaoInstance?.candidato}" readonly="true"/>
+	<g:textField class="form-control" id="pessoa" name="candidato.id"  value="${inscricaoInstance?.pessoa}" readonly="true"/>
 </div>
 
 <div class="form-group ${hasErrors(bean: inscricaoInstance, field: 'oferta', 'error')} required">

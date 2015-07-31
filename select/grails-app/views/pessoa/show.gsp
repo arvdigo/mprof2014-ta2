@@ -111,13 +111,6 @@
 				</tr>
 				</g:if>
 			
-				<g:if test="${pessoaInstance?.cidade_nascimento}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="pessoa.cidade_nascimento.label" default="Cidadenascimento" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${pessoaInstance}" field="cidade_nascimento"/></td>
-				</tr>
-				</g:if>
-			
 				<g:if test="${pessoaInstance?.nacionalidade}">
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="pessoa.nacionalidade.label" default="Nacionalidade" /></td>

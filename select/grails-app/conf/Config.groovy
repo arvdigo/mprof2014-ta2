@@ -123,8 +123,6 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'select.app.Usu
 grails.plugin.springsecurity.authority.className = 'select.app.Permissao'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
-	'/index':           ['ROLE_ADMIN', 'ROLE_ACADEMICO'],
-	'/index.gsp':       ['ROLE_ADMIN', 'ROLE_ACADEMICO'],
 	'/assets/**':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],
@@ -132,12 +130,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':  ['permitAll'],
 	'/inicio/equipe':	['permitAll'],
 	'/inicio/sobre':	['permitAll'],
-	
-	'/user/**':	  		['ROLE_ADMIN'],
-	'/role/**':  		['ROLE_ADMIN'],
-	'/dbdoc/**':  		['ROLE_ADMIN'],
-	'/logout/**':  		['ROLE_ADMIN'],
-	'/inicio/**':		['ROLE_ADMIN'],
+	'/inicio/**':		['ROLE_ADMIN', 'ROLE_CANDIDATO'],
+
+	'/login/ajaxSuccess':['ROLE_ADMIN', 'ROLE_CANDIDATO'],
 	
 	 '/processo/**':	['ROLE_ADMIN'],
 	 '/curso/**':		['ROLE_ADMIN'],
@@ -145,7 +140,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	 '/oferta/**':		['ROLE_ADMIN'],
 	 '/sala/**':		['ROLE_ADMIN'],
 	 '/pessoa/**':		['ROLE_ADMIN'],
-	 '/inscricao/**':	['ROLE_ADMIN'],
+	 '/inscricao/**':	['ROLE_ADMIN', 'ROLE_CANDIDATO'],
 	 '/search/**':		['ROLE_ADMIN']
 ]
 

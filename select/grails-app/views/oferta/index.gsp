@@ -32,7 +32,7 @@
 				</tbody>
 			</table>
 			<div>
-				<g:paginate total="${campusInstanceCount ?: 0}" />
+				<g:paginate total="${ofertaInstanceCount ?: 0}" />
 			</div>
 		</section>
 	</body>

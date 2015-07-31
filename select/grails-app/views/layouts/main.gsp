@@ -25,12 +25,6 @@
 		</header>
 				
 		<div id="Content" class="container">
-			
-			<!-- Main menu in one row (e.g., controller entry points 
-			<g:if test="${!layout_nomainmenu}">
-				<g:render template="/layouts/_menu/menubar"/>
-			</g:if>
-			-->
 			<!-- Secondary menu in one row (e.g., actions for current controller) -->
 			<g:if test="${!layout_nosecondarymenu}">
 				<g:render template="/layouts/_menu/submenubar"/>														
