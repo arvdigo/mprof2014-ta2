@@ -4,6 +4,9 @@ package select.app
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import select.app.Usuario;
+import select.app.UsuarioPermissao;
 
 @Transactional(readOnly = true)
 class PessoaController {
@@ -101,4 +104,55 @@ class PessoaController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	/*
+	** Metodos para auto cadastro de candidatos
+	*/	
+	@Secured(['permitAll'])
+	def novaConta() {
+		respond new Pessoa(params)
+	}
+	
+	@Secured(['permitAll'])
+	@Transactional
+	def saveNovaConta(Pessoa pessoaInstance) {			
+		
+		if (!params.senha.equals(params.confirmarSenha)) {
+			flash.error = 'Senha e a confirmação de senha não são iguais'
+			respond view:'novaConta'
+		}
+		
+		if (pessoaInstance == null) {
+			notFound()
+			return
+		}	
+
+		
+		pessoaInstance.withTransaction{status ->
+            try{		
+				Permissao permissao = Permissao.findByAuthority("ROLE_CANDIDATO")
+				Usuario usuario = new Usuario(username: params.cpf, password:params.senha, enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true, failOnError:true)
+				UsuarioPermissao usuarioPermissao = new UsuarioPermissao(usuario: usuario, permissao: permissao).save(flush:true, failOnError:true)
+				pessoaInstance.usuario = usuario
+				pessoaInstance.save(flush:true, failOnError:true)				
+			}catch(Exception exp){
+				pessoaInstance.errors.reject(
+					'pessoaInstance.cpf.inuse',
+					["${params.cpf}"].toArray() as Object[],
+					'O CPF [{0}] já esta cadastrado!!!'
+				)				
+				status.setRollbackOnly()
+			}
+		}	
+
+		if (pessoaInstance.hasErrors()) {
+			respond pessoaInstance.errors, view:'novaConta'
+			return
+		}
+		
+		//flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
+
+		render(view:"confirmaNovaConta")
+
+	}
 }

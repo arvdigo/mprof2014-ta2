@@ -32,6 +32,9 @@
 				
 				<div class="form-group">
 					<input type='submit' id="submit" class="btn btn-success" value='${message(code: "springSecurity.login.button")}'/>
+					<g:link controller='pessoa' action="novaConta">    
+   						<input type="button"  class="btn btn-info" value="Criar Conta" class="button"/> 
+					</g:link>
 				</div>
 		</form>
 	</div>

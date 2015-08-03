@@ -63,10 +63,11 @@ class Pessoa {
 		numero(nullable:true, blank:true)
 		bairro(nullable:false, blank:false)
 		estado_civil(nullable:false, blank:false)
-		telefone(nullable:false, blank:false)
+		telefone(nullable:true, blank:true)
 		data_nascimento(nullable:false, blank:false)
 		nacionalidade(nullable:false, blank:false)
 		email(nullable:false, blank:false)
 		sexo(nullable:false, blank:false)
+		usuario(nullable:true, blank:true)
     }
 }
