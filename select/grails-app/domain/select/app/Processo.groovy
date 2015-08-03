@@ -2,6 +2,7 @@ package select.app
 
 class Processo {
 	
+	int id
 	String descricao
 	String edital
 	int ano
@@ -20,6 +21,7 @@ class Processo {
 	}
 	
     static constraints = {
+		id(nullable:true, blank:true)
 		data_final(nullable:true, blank:true)
     }
 }

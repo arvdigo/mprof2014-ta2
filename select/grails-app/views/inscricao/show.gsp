@@ -5,6 +5,9 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
+		<sec:ifNotGranted roles="ROLE_ADMIN">
+			<g:set var="layout_nosecondarymenu"	value="${true}" scope="request"/>
+		</sec:ifNotGranted>
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>

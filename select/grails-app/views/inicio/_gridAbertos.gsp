@@ -18,7 +18,7 @@
 			<td>${listProcessoAberto.edital}</td>
 			<td>${listProcessoAberto.data_inicial}</td>
 			<td>${listProcessoAberto.data_final}</td>
-			<td class="text-center" style="vertical-align: middle;"><g:link class="glyphicon glyphicon-plus" action="show" id="${processoAberto.id}"></g:link></td>
+			<td class="text-center" style="vertical-align: middle;"><g:link class="glyphicon glyphicon-plus" controller="inscricao" action="criarInscricao" id="${listProcessoAberto.id}"></g:link></td>
 		</tr>
 	</g:each>
 	</tbody>

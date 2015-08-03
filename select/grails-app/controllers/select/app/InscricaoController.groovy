@@ -4,9 +4,12 @@ package select.app
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
 class InscricaoController {
+	
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -101,4 +104,82 @@ class InscricaoController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	@Secured(['ROLE_CANDIDATO'])
+	def criarInscricao(Processo processo) {
+		//busca candidato
+		def user = springSecurityService.currentUser
+		Pessoa pessoa = Pessoa.findByUsuario(user)
+		
+		if (pessoa == null) {
+			flash.error = 'Usuário não é uma pessoa no sistema'
+		}
+		
+		Inscricao inscricao = new Inscricao()
+		inscricao.pessoa = pessoa
+		
+		render(view:'criarInscricao', 
+			   model:[inscricao:inscricao, processo:processo]
+		)
+	}
+	
+	def alterarInscricao(Inscricao inscricao) {
+		Processo processo = inscricao.oferta.processo
+		render(view:'alterarInscricao', 
+			   model:[inscricao:inscricao, processo:processo]
+		)
+	}
+	
+	@Secured(['ROLE_CANDIDATO'])
+	@Transactional
+	def updateInscricao(Inscricao inscricao) {
+		if (inscricao == null) {
+			notFound()
+			return
+		}
+
+		if (inscricao.hasErrors()) {
+			respond inscricao.errors, view:'alterarInscricao'
+			return
+		}
+
+		inscricao.save flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [message(code: 'Inscricao.label', default: 'Inscricao'), inscricaoInstance.id])
+				redirect inscricao
+			}
+			'*'{ respond inscricao, [status: OK] }
+		}
+	}
+
+	
+	@Secured(['ROLE_CANDIDATO'])
+	@Transactional
+    def saveInscricao(Inscricao inscricao) {
+        if (inscricao == null) {
+            notFound()
+            return
+        }			
+
+        if (inscricao.hasErrors()) {
+            respond inscricao.errors, view:'criarInscricao'
+            return
+        }
+		
+		inscricao.data = new Date()
+        inscricao.save(flush:true)
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'inscricao.label', default: 'Inscricao'), inscricao.id])
+                redirect inscricao
+            }
+            '*' { respond inscricao, [status: CREATED] }
+        }
+    }
+	
+	
+	
 }

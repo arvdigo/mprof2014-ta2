@@ -29,7 +29,7 @@
 				</g:if>	
 			<td class="text-center" style="vertical-align: middle;">
 				<g:if test="${!listInscrito.sala}">
-					<g:link class="glyphicon glyphicon-edit" action="show" id="${inscricao.id}"></g:link>
+					<g:link class="glyphicon glyphicon-edit" controller="inscricao" action="alterarInscricao" id="${listInscrito.id}"></g:link>
 				</g:if>
 			</td>
 		</tr>

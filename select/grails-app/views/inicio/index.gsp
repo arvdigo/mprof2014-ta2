@@ -72,33 +72,7 @@
 			    <div class="row">
 			      
 			    </div>
-		</div>
-			  
-		<script>		  
-		$(document).ready(function() {
-		    setupGridAjax();
-		});
-		
-		// Turn all sorting and paging links into ajax requests for the grid
-		function setupGridAjax() {
-		    $(".teste").find(".pagination a").on('click', function(event) {
-		        event.preventDefault();
-		        var url = $(this).attr('href');
-		
-		        var grid = $("table.ajax");
-		        $(grid).html($("#spinner").html());
-		
-		        $.ajax({
-		            type: 'GET',
-		            url: url,
-		            success: function(data) {
-		                $(grid).fadeOut('fast', function() {$(this).html(data).fadeIn('slow');});
-		            }
-		        });
-		    });
-		}
-		</script>	
-		
+		</div>		
 		</sec:ifAnyGranted>
 			
 	</body>
