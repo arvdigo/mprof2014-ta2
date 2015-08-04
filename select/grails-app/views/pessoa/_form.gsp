@@ -69,9 +69,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<g:select class="form-control" name="sexo" required="" noSelection="${['null':'Selecione...']}" from="${Sexo}" value="${pessoaInstance?.sexo}"/>
-	</div>
-
-	
+	</div>	
 </fieldset>
 
 

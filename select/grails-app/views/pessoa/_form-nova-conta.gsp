@@ -1,6 +1,6 @@
 <%@page import="select.EstadoCivil"%>
 <%@page import="select.Sexo"%>
-<%@page import="select.app.Pessoa" %>
+<%@page import="select.app.Pessoa"%>
 
 <fieldset>
 <legend>Identificação:</legend>
@@ -130,7 +130,7 @@
 		<g:textField class="form-control" name="numero" value="${pessoaInstance?.numero}"/>
 	</div>
 	
-	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'complemento', 'error')}>
+	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'complemento', 'error')}">
 		<label for="complemento" class="control-label">
 			<g:message code="pessoa.complemento.label" default="Complemento" />
 		</label>
@@ -160,6 +160,6 @@
 		</label>
 		<g:textField class="form-control" name="estado" required="" value="${pessoaInstance?.estado}"/>
 	</div>
-
 </fieldset>
+
 

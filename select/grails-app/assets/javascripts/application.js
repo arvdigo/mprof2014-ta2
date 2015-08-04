@@ -6,6 +6,7 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery
+//= jquery.maskedinput.min
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require checkboxes
@@ -14,12 +15,16 @@
 
 if (typeof jQuery !== 'undefined') {
 	$(document).ready(function() {
+		$('#cpf').mask('999.999.999-99');
+		$("#cep").mask("99999-999");
+		
 		/**
 		 * Activate Datepicker for Bootstrap
 		 */
 		$(".datepicker").datepicker({
 			language: "pt-BR",
-		    format: 'dd/mm/yyyy'
+		    format: 'dd/mm/yyyy',
+		    autoclose: true
 		});
 		
 		/**
