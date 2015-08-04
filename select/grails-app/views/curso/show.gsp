@@ -12,28 +12,30 @@
 			<table class="table">
 			<tbody>
 			
-				<g:if test="${cursoInstance?.nome}">
+				<tr class="prop">
+					<td valign="top" class="id"><g:message code="curso.id.label" default="ID" /></td>
+				    <td valign="top" class="value"><g:fieldValue bean="${cursoInstance}" field="id"/></td>	
+				</tr>
+							
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="curso.nome.label" default="Nome" /></td>
-				    <td valign="top" class="value"><g:fieldValue bean="${cursoInstance}" field="nome"/></td>	
+				    <g:if test="${cursoInstance?.nome}">	
+				    	<td valign="top" class="value"><g:fieldValue bean="${cursoInstance}" field="nome"/></td>
+				    </g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>	
 				</tr>
-				</g:if>
 			
-				<g:if test="${cursoInstance?.nivel}">
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="curso.nivel.label" default="Nivel" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${cursoInstance}" field="nivel"/></td>
+					<g:if test="${cursoInstance?.nivel}">	
+						<td valign="top" class="value"><g:fieldValue bean="${cursoInstance}" field="nivel"/></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
 				</tr>
-				</g:if>
-			
-				<g:if test="${cursoInstance?.ofertas}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="curso.ofertas.label" default="Ofertas" /></td>
-					<g:each in="${cursoInstance.ofertas}" var="o">
-						<td valign="top" class="value"><g:link controller="oferta" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></td>
-					</g:each>
-				</tr>
-				</g:if>
 			
 			</tbody>
 			</table>

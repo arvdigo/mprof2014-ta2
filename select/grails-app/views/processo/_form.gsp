@@ -14,7 +14,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField class="form-control" name="descricao" required="" value="${processoInstance?.descricao}"/>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'edital', 'error')} required">
@@ -31,7 +30,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field class="datepicker form-control" type="none" name="data_inicial" precision="day"  value="${processoInstance?.data_inicial}"  />
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: processoInstance, field: 'data_final', 'error')}">

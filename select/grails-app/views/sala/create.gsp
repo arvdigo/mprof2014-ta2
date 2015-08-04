@@ -8,7 +8,7 @@
 	<body>
 		<section id="create-sala" class="first">
 			<g:hasErrors bean="${salaInstance}">
-			<ul class="errors" role="alert">
+			<ul class="alert alert-warning" role="alert">
 				<g:eachError bean="${salaInstance}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>

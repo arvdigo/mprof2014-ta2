@@ -1,24 +1,23 @@
-<%@ page import="select.app.Oferta" %>
+<%@ page import="select.app.Usuario" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'oferta.label', default: 'Oferta')}" />
+		<g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<section id="edit-oferta" class="first">
-
-			<g:hasErrors bean="${ofertaInstance}">
+		<section id="edit-usuario" class="first">
+			<g:hasErrors bean="${usuarioInstance}">
 			<ul class="alert alert-warning" role="alert">
-				<g:eachError bean="${ofertaInstance}" var="error">
+				<g:eachError bean="${usuarioInstance}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
 			
-			<g:form class="form-horizontal" url="[resource:ofertaInstance, action:'update']" method="PUT" >
-				<g:hiddenField name="version" value="${ofertaInstance?.version}" />
+			<g:form class="form-horizontal"  url="[resource:usuarioInstance, action:'update']" method="PUT" >
+				<g:hiddenField name="version" value="${usuarioInstance?.version}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

@@ -11,19 +11,28 @@
 	<section id="index-inscricao" class="first">
 		<table class="table table-bordered margin-top-medium">
 			<thead>
-					<tr>					
-						<th><g:message code="inscricao.pessoa.label" default="Pessoa" /></th>
-						<th><g:message code="inscricao.oferta.label" default="Oferta" /></th>
+					<tr>
+						<g:sortableColumn property="id" title="${message(code: 'inscicao.id.label', default: 'ID')}" />
+						<g:sortableColumn property="id" title="${message(code: 'inscricaos.pessoa.nome.label', default: 'Nome')}" />
+						<g:sortableColumn property="oferta.processo.descricao" title="${message(code: 'inscricao.oferta.label', default: 'Oferta')}" />																				
+						<g:sortableColumn property="confirmado" title="${message(code: 'inscricao.confirmado.label', default: 'Confirmado')}" />	
 						<th><g:message code="inscricao.sala.label" default="Sala" /></th>
+						<th class="text-center">Ação</th>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${inscricaoInstanceList}" status="i" var="inscricaoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${inscricaoInstance.id}">${fieldValue(bean: inscricaoInstance, field: "pessoa")}</g:link></td>
-						<td>${fieldValue(bean: inscricaoInstance, field: "oferta")}</td>
-						<td>${fieldValue(bean: inscricaoInstance, field: "sala")}</td>
-						</tr>
+						<td>${fieldValue(bean: inscricaoInstance, field: "id")}</td>
+						<td>${fieldValue(bean: inscricaoInstance, field: "pessoa.nome")}</td>
+						<td>${fieldValue(bean: inscricaoInstance, field:"oferta.processo.descricao")} -  ${fieldValue(bean: inscricaoInstance, field:"oferta.curso.nome")}/ ${fieldValue(bean: inscricaoInstance, field:"oferta.curso.nivel")} -  ${fieldValue(bean: inscricaoInstance, field:"oferta.campus.nome")}</td>
+						<td><g:formatBoolean boolean="${inscricaoInstance.confirmado}" /></td>	
+						<td>${fieldValue(bean: inscricaoInstance, field: "sala.descricao")}</td>
+						<td class="text-center" style="vertical-align: middle;">
+							<g:link class="glyphicon glyphicon-eye-open" action="show" id="${inscricaoInstance.id}"></g:link>
+							<g:link class="glyphicon glyphicon-pencil" action="edit" id="${inscricaoInstance.id}"></g:link>
+						</td>		
+					</tr>
 				</g:each>
 				</tbody>
 			</table>

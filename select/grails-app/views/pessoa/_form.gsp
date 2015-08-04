@@ -5,6 +5,14 @@
 <fieldset>
 <legend>Identificação:</legend>
 
+	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'usuario', 'error')} required">
+		<label for="sexo" class="control-label">
+			<g:message code="pessoa.usuario.label" default="Usuario" />
+			<span class="required-indicator">*</span>
+		</label>
+		<g:select class="form-control" name="usuario" required="" noSelection="${['null':'Selecione...']}" from="${select.app.Usuario.list()}" optionValue="${{ usuario -> "${usuario.id} - ${usuario.username}" }}" value="${pessoaInstance?.usuario?.id}"/>
+	</div>	
+
 	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'cpf', 'error')} required">
 		<label for="cpf" class="control-label">
 			<g:message code="pessoa.cpf.label" default="CPF" />

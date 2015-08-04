@@ -84,7 +84,20 @@ class PessoaController {
             return
         }
 
-        pessoaInstance.delete flush:true
+		try {
+			pessoaInstance.delete flush:true
+		} catch(org.springframework.dao.DataIntegrityViolationException | Exception e) {
+			request.withFormat {
+				form multipartForm {
+					println(e)
+					flash.message = "Não foi possivel remover o campus porque o mesmo esta associado a outro registro."
+					flash.error = e.localizedMessage
+					redirect action:"index", method:"GET"
+				}
+				'*'{ render status: NO_CONTENT }
+			}
+			return
+		}
 
         request.withFormat {
             form multipartForm {

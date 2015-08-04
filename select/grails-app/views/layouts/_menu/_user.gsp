@@ -16,7 +16,7 @@
 			</a></li>
 			
 			<li class="divider"></li>
-			<li class="logoutt"><a href="${createLink(uri: '/login/auth')}">
+			<li class="logout"><a href="${createLink(uri: '/j_spring_security_logout')}">
 				<i class="glyphicon glyphicon-off"></i>
 				Sair
 			</a></li>
@@ -26,9 +26,4 @@
 
 	</li>
 <%--</ul>--%>
-<script type='text/javascript'>
-	$('.logoutt').click(function() {
-		$.post("${createLink(uri: '/logout')}");
-	});
-	
-</script>
+

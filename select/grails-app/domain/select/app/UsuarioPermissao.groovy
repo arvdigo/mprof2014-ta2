@@ -84,6 +84,7 @@ class UsuarioPermissao implements Serializable {
 	}
 
 	static constraints = {
+		usuario unique: true
 		permissao validator: { Permissao r, UsuarioPermissao ur ->
 			if (ur.usuario == null || ur.usuario.id == null) return
 			boolean existing = false

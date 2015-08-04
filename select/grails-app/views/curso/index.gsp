@@ -12,15 +12,22 @@
 			<table class="table table-bordered margin-top-medium">
 				<thead>
 					<tr>					
+						<g:sortableColumn property="id" title="${message(code: 'curso.id.label', default: 'ID')}" />
 						<g:sortableColumn property="nome" title="${message(code: 'curso.nome.label', default: 'Nome')}" />
 						<g:sortableColumn property="nivel" title="${message(code: 'curso.nivel.label', default: 'Nivel')}" />
+						<th class="text-center">Ação</th>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${cursoInstanceList}" status="i" var="cursoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${cursoInstance.id}">${fieldValue(bean: cursoInstance, field: "nome")}</g:link></td>
+						<td>${fieldValue(bean: cursoInstance, field: "id")}</td>
+						<td>${fieldValue(bean: cursoInstance, field: "nome")}</td>
 						<td>${fieldValue(bean: cursoInstance, field: "nivel")}</td>
+						<td class="text-center" style="vertical-align: middle;">
+							<g:link class="glyphicon glyphicon-eye-open" action="show" id="${cursoInstance.id}"></g:link>
+							<g:link class="glyphicon glyphicon-pencil" action="edit" id="${cursoInstance.id}"></g:link>
+						</td>
 					</tr>
 				</g:each>
 				</tbody>

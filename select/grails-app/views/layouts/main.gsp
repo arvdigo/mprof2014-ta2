@@ -25,17 +25,17 @@
 		</header>
 				
 		<div id="Content" class="container">
-			<!-- Secondary menu in one row (e.g., actions for current controller) -->
+			<!-- menu in one row (e.g., actions for current controller) -->
 			<g:if test="${!layout_nosecondarymenu}">
-				<g:render template="/layouts/_menu/submenubar"/>														
+				<g:render template="/layouts/_menu/menubar"/>														
 			</g:if>
 		
 			<!-- print system messages (infos, warnings, etc) - not validation errors -->
 			<g:if test="${flash.message && !layout_noflashmessage}">
-				<div class="alert alert-info">${flash.message}</div>
+				<div class="alert alert-info margin-top-small">${flash.message}</div>
 			</g:if>
 			<g:if test="${flash.error && !layout_noflasherror}">
-				<div class="alert alert-danger">${flash.error}</div>
+				<div class="alert alert-danger margin-top-small">${flash.error}</div>
 			</g:if>
 					
 			<!-- Show page's content -->

@@ -12,49 +12,60 @@
 			<table class="table">
 			<tbody>
 			
-				<g:if test="${processoInstance?.ano}">
+				<tr class="prop">
+					<td valign="top" class="id"><g:message code="processo.id.label" default="ID" /></td>
+					<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="id"/></td>
+				</tr>			
+				
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="processo.ano.label" default="Ano" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="ano"/></td>
-				</tr>
-				</g:if>
-			
-				<g:if test="${processoInstance?.descricao}">
+					<g:if test="${processoInstance?.ano}">	
+						<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="ano"/></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>			
+				
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="processo.descricao.label" default="Descricao" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="descricao"/></td>
-				</tr>
-				</g:if>
-			
-				<g:if test="${processoInstance?.edital}">
+					<g:if test="${processoInstance?.descricao}">
+						<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="descricao"/></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>			
+				
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="processo.edital.label" default="Edital" /></td>
-					<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="edital"/></td>
-				</tr>
-				</g:if>
-			
-				<g:if test="${processoInstance?.data_inicial}">
+					<g:if test="${processoInstance?.edital}">
+						<td valign="top" class="value"><g:fieldValue bean="${processoInstance}" field="edital"/></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>			
+				
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="processo.data_inicial.label" default="Datainicial" /></td>
-					<td valign="top" class="value"><g:formatDate date="${processoInstance?.data_inicial}" /></td>
-				</tr>
-				</g:if>
-			
-				<g:if test="${processoInstance?.data_final}">
+					<g:if test="${processoInstance?.data_inicial}">
+						<td valign="top" class="value"><g:formatDate format="dd/MM/yyyy" date="${processoInstance?.data_inicial}" /></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>		
+				
 				<tr class="prop">
 					<td valign="top" class="name"><g:message code="processo.data_final.label" default="Datafinal" /></td>
-					<td valign="top" class="value"><g:formatDate date="${processoInstance?.data_final}" /></td>
-				</tr>
-				</g:if>						
-			
-				<g:if test="${processoInstance?.ofertas}">
-				<tr class="prop">
-					<td valign="top" class="name"><g:message code="processo.ofertas.label" default="Ofertas" /></td>
-					<g:each in="${processoInstance.ofertas}" var="o">
-						<td valign="top" class="value"><g:link controller="oferta" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></td>
-					</g:each>
-				</tr>
-				</g:if>
+					<g:if test="${processoInstance?.data_final}">
+						<td valign="top" class="value"><g:formatDate format="dd/MM/yyyy" date="${processoInstance?.data_final}" /></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>					
 				
 			</tbody>
 			</table>

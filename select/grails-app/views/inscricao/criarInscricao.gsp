@@ -10,7 +10,7 @@
 		<section id="create-inscricao" class="first">
 		
 			<g:hasErrors bean="${inscricaoInstance}">
-			<ul class="errors" role="alert">
+			<ul class="alert alert-warning" role="alert">
 				<g:eachError bean="${inscricaoInstance}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
