@@ -15,8 +15,8 @@
 			<td>${listProcessoFechado.descricao}</td>
 			<td>${listProcessoFechado.ano}</td>
 			<td>${listProcessoFechado.edital}</td>
-			<td>${listProcessoFechado.data_inicial}</td>
-			<td>${listProcessoFechado.data_final}</td>			
+			<td><g:formatDate format="dd/MM/yyyy" date="${listProcessoFechado.data_inicial}" /></td>
+			<td><g:formatDate format="dd/MM/yyyy" date="${listProcessoFechado.data_final}" /></td>		
 		</tr>
 	</g:each>
 	</tbody>

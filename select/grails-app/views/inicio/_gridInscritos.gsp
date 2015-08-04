@@ -15,14 +15,7 @@
 			<td>${listInscrito.oferta.processo.descricao}</td>
 			<td>${listInscrito.oferta.curso.nome}</td>
 			<td>${listInscrito.oferta.curso.nivel}</td>
-			<td>
-				<g:if test="${listInscrito.confirmado}">
-					SIM
-				</g:if>
-				<g:else test="${listInscrito.confirmado}">
-					Não
-				</g:else>
-			</td>
+			<td><g:formatBoolean boolean="${listInscrito.confirmado}" /></td>
 			<td>
 				<g:if test="${listInscrito.sala}">
 					${listInscrito.sala.campus.nome}: ${listInscrito.sala.descricao}</td>

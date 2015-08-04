@@ -16,8 +16,8 @@
 			<td>${listProcessoAberto.descricao}</td>
 			<td>${listProcessoAberto.ano}</td>
 			<td>${listProcessoAberto.edital}</td>
-			<td>${listProcessoAberto.data_inicial}</td>
-			<td>${listProcessoAberto.data_final}</td>
+			<td><g:formatDate format="dd/MM/yyyy" date="${listProcessoAberto.data_inicial}" /></td>
+			<td><g:formatDate format="dd/MM/yyyy" date="${listProcessoAberto.data_final}" /></td>
 			<td class="text-center" style="vertical-align: middle;"><g:link class="glyphicon glyphicon-plus" controller="inscricao" action="criarInscricao" id="${listProcessoAberto.id}"></g:link></td>
 		</tr>
 	</g:each>
