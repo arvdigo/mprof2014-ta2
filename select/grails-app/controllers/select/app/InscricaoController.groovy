@@ -5,6 +5,7 @@ package select.app
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.*
 
 @Transactional(readOnly = true)
 class InscricaoController {
@@ -142,7 +143,7 @@ class InscricaoController {
 			   model:[inscricao:inscricao, processo:processo]
 		)
 	}
-	
+		
 	@Secured(['ROLE_CANDIDATO'])
 	@Transactional
 	def updateInscricao(Inscricao inscricao) {
@@ -193,6 +194,16 @@ class InscricaoController {
         }
     }
 	
+	def confirmarInscricao() {
+		respond new Inscricao(params)
+	}
 	
+	def findInscricoes() {
+		def pessoa = Pessoa.findByCpf(params.cpf)
+		def inscricoes = pessoa?.inscricoes	as JSON	
+
+		render inscricoes 		
+		
+	}
 	
 }
