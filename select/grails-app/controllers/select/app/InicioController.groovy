@@ -16,7 +16,7 @@ class InicioController {
 		Pessoa pessoa = Pessoa.findByUsuario(user)
 		
 		//Quantidade de itens no grid
-		params.max = 4
+		params.max = 5
 		
 		//Data de hoje com hora zerada
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");

@@ -11,13 +11,7 @@ class Campus {
 	String cidade
 	String estado	
 	
-	// Chaves:
 	static hasMany = [ofertas:Oferta, sala:Sala]	
-	
-	Campus(String nome) {
-		this()
-		this.nome = nome
-	}
 	
 	Campus(String nome) {
 		this()

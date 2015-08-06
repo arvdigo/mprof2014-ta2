@@ -20,7 +20,7 @@
 	</tbody>
 </table>
 <div>
-	<g:if test="${countProcessoFechado > 4}">
+	<g:if test="${countProcessoFechado > 5}">
 		<g:paginate total="${countProcessoFechado ?: 0}" />
 	</g:if>
 </div>
