@@ -12,25 +12,24 @@
 			<table class="table table-bordered margin-top-medium">
 			<thead>
 					<tr>
-					
-						<th><g:message code="sala.campus.label" default="Campus" /></th>
-					
+						<g:sortableColumn property="id" title="${message(code: 'processo.id.label', default: 'ID')}" />
+						<g:sortableColumn property="campus.nome" title="${message(code: 'sala.campus.label', default: 'Campus')}" />						
 						<g:sortableColumn property="descricao" title="${message(code: 'sala.descricao.label', default: 'Descricao')}" />
-					
 						<g:sortableColumn property="vagas" title="${message(code: 'sala.vagas.label', default: 'Vagas')}" />
-					
+						<th class="text-center">Ação</th>					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${salaInstanceList}" status="i" var="salaInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${salaInstance.id}">${fieldValue(bean: salaInstance, field: "campus")}</g:link></td>
-					
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">					
+						<td>${fieldValue(bean: salaInstance, field: "id")}</td>
+						<td>${fieldValue(bean: salaInstance, field: "campus.nome")}</td>
 						<td>${fieldValue(bean: salaInstance, field: "descricao")}</td>
-					
 						<td>${fieldValue(bean: salaInstance, field: "vagas")}</td>
-					
+						<td class="text-center" style="vertical-align: middle;">
+							<g:link class="glyphicon glyphicon-eye-open" action="show" id="${salaInstance.id}"></g:link>
+							<g:link class="glyphicon glyphicon-pencil" action="edit" id="${salaInstance.id}"></g:link>
+						</td>
 					</tr>
 				</g:each>
 				</tbody>

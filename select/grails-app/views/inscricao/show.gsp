@@ -5,58 +5,75 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'inscricao.label', default: 'Inscricao')}" />
+		<sec:ifNotGranted roles="ROLE_ADMIN">
+			<g:set var="layout_nosecondarymenu"	value="${true}" scope="request"/>
+		</sec:ifNotGranted>
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-inscricao" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-inscricao" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list inscricao">
+		<section id="show-inscricao" class="first">
+			<table class="table">
+			<tbody>
+
+				<tr class="prop">
+					<td valign="top" class="id"><g:message code="inscricao.id.label" default="ID" /></td>
+					<td valign="top" class="value"><g:fieldValue bean="${inscricaoInstance}" field="id"/></td>
+				</tr>
+							
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="inscricao.pessoa.label" default="Pessoa" /></td>
+					<g:if test="${inscricaoInstance?.pessoa}">
+						<td valign="top" class="value"><g:link controller="pessoa" action="show" id="${inscricaoInstance?.pessoa?.id}">${inscricaoInstance?.pessoa?.id?.encodeAsHTML()} - ${inscricaoInstance?.pessoa?.nome.encodeAsHTML()}</g:link></td>	
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>
+							
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="inscricao.oferta.label" default="Oferta" /></td>
+					<g:if test="${inscricaoInstance?.oferta}">	
+						<td valign="top" class="value"><g:link controller="oferta" action="show" id="${inscricaoInstance?.oferta?.id}">
+							${inscricaoInstance?.oferta?.id?.encodeAsHTML()} - ${inscricaoInstance?.oferta?.processo?.descricao?.encodeAsHTML()} - ${inscricaoInstance?.oferta?.curso?.nome?.encodeAsHTML()}/${inscricaoInstance?.oferta?.curso?.nivel?.encodeAsHTML()} - ${inscricaoInstance?.oferta?.campus?.nome?.encodeAsHTML()}
+						</g:link></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>
+							
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="inscricao.sala.label" default="Sala" /></td>
+					<g:if test="${inscricaoInstance?.sala}">	
+						<td valign="top" class="value"><g:link controller="sala" action="show" id="${inscricaoInstance?.sala?.id}">${inscricaoInstance?.sala?.id?.encodeAsHTML()} - ${inscricaoInstance?.sala?.descricao?.encodeAsHTML()} - ${inscricaoInstance?.sala?.campus?.nome?.encodeAsHTML()}</g:link></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>
+				
+				<tr class="prop">
+					<td valign="top" class="data"><g:message code="campus.data.label" default="Data Inscrição" /></td>
+					<g:if test="${inscricaoInstance?.data}">
+						<td valign="top" class="value"><g:formatDate date="${inscricaoInstance.data}" /></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>
+				
+				<tr class="prop">
+					<td valign="top" class="nota"><g:message code="campus.nota.label" default="Nota" /></td>
+					<g:if test="${inscricaoInstance?.nota}">
+						<td valign="top" class="value"><g:fieldValue bean="${inscricaoInstance}" field="nota"/></td>
+					</g:if>
+					<g:else>
+						<td valign="top" class="name">-</td>
+					</g:else>
+				</tr>
 			
-				<g:if test="${inscricaoInstance?.candidato}">
-				<li class="fieldcontain">
-					<span id="candidato-label" class="property-label"><g:message code="inscricao.candidato.label" default="Candidato" /></span>
-					
-						<span class="property-value" aria-labelledby="candidato-label"><g:link controller="candidato" action="show" id="${inscricaoInstance?.candidato?.id}">${inscricaoInstance?.candidato?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${inscricaoInstance?.oferta}">
-				<li class="fieldcontain">
-					<span id="oferta-label" class="property-label"><g:message code="inscricao.oferta.label" default="Oferta" /></span>
-					
-						<span class="property-value" aria-labelledby="oferta-label"><g:link controller="oferta" action="show" id="${inscricaoInstance?.oferta?.id}">${inscricaoInstance?.oferta?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${inscricaoInstance?.sala}">
-				<li class="fieldcontain">
-					<span id="sala-label" class="property-label"><g:message code="inscricao.sala.label" default="Sala" /></span>
-					
-						<span class="property-value" aria-labelledby="sala-label"><g:link controller="sala" action="show" id="${inscricaoInstance?.sala?.id}">${inscricaoInstance?.sala?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:inscricaoInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${inscricaoInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</div>
+			</tbody>
+			</table>
+		</section>
 	</body>
 </html>

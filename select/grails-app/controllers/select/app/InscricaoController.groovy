@@ -4,9 +4,13 @@ package select.app
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.*
 
 @Transactional(readOnly = true)
 class InscricaoController {
+	
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -81,7 +85,20 @@ class InscricaoController {
             return
         }
 
-        inscricaoInstance.delete flush:true
+		try {
+			inscricaoInstance.delete flush:true
+		} catch(org.springframework.dao.DataIntegrityViolationException | Exception e) {
+			request.withFormat {
+				form multipartForm {
+					println(e)
+					flash.message = "Não foi possivel remover o campus porque o mesmo esta associado a outro registro."
+					flash.error = e.localizedMessage
+					redirect action:"index", method:"GET"
+				}
+				'*'{ render status: NO_CONTENT }
+			}
+			return
+		}
 
         request.withFormat {
             form multipartForm {
@@ -101,4 +118,112 @@ class InscricaoController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	@Secured(['ROLE_CANDIDATO'])
+	def criarInscricao(Processo processo) {
+		//busca candidato
+		def user = springSecurityService.currentUser
+		Pessoa pessoa = Pessoa.findByUsuario(user)
+		
+		if (pessoa == null) {
+			flash.error = 'Usuário não é uma pessoa no sistema'
+		}
+		
+		Inscricao inscricao = new Inscricao()
+		inscricao.pessoa = pessoa
+		
+		render(view:'criarInscricao', 
+			   model:[inscricao:inscricao, processo:processo]
+		)
+	}
+	
+	def alterarInscricao(Inscricao inscricao) {
+		Processo processo = inscricao.oferta.processo
+		render(view:'alterarInscricao', 
+			   model:[inscricao:inscricao, processo:processo]
+		)
+	}
+		
+	@Secured(['ROLE_CANDIDATO'])
+	@Transactional
+	def updateInscricao(Inscricao inscricao) {
+		if (inscricao == null) {
+			notFound()
+			return
+		}
+
+		if (inscricao.hasErrors()) {
+			respond inscricao.errors, view:'alterarInscricao'
+			return
+		}
+
+		inscricao.save flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [message(code: 'Inscricao.label', default: 'Inscricao'), inscricaoInstance.id])
+				redirect inscricao
+			}
+			'*'{ respond inscricao, [status: OK] }
+		}
+	}
+
+	
+	@Secured(['ROLE_CANDIDATO'])
+	@Transactional
+    def saveInscricao(Inscricao inscricao) {
+        if (inscricao == null) {
+            notFound()
+            return
+        }			
+
+        if (inscricao.hasErrors()) {
+            respond inscricao.errors, view:'criarInscricao'
+            return
+        }
+		
+		inscricao.data = new Date()
+        inscricao.save(flush:true)
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'inscricao.label', default: 'Inscricao'), inscricao.id])
+                redirect inscricao
+            }
+            '*' { respond inscricao, [status: CREATED] }
+        }
+    }
+	
+	def confirmarInscricao() {
+		respond new Inscricao(params)
+	}
+	
+	def findInscricoes() {
+		def pessoa = Pessoa.findByCpf(params.cpf)
+		def inscricoes = pessoa?.inscricoes	as JSON	
+
+		render inscricoes 		
+		
+	}
+	
+	@Transactional
+	def confirmar(Inscricao inscricao) {
+		println(inscricao)
+		if (inscricao == null) {
+			notFound()
+			return
+		}
+		
+		inscricao.confirmado = true
+		inscricao.save(flush:true)
+
+		request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Inscricao.label', default: 'Inscricao'), inscricao.id])
+                redirect action: "confirmarInscricao", method: "GET"
+            }
+            '*'{ respond inscricao, [status: OK] }
+        }
+	}
+	
 }

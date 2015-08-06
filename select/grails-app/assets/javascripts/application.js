@@ -6,17 +6,26 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery
+//= jquery.maskedinput.min
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require checkboxes
 //= require_tree .
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
 	$(document).ready(function() {
+		$('#cpf').mask('999.999.999-99');
+		$("#cep").mask("99999-999");
+		
 		/**
 		 * Activate Datepicker for Bootstrap
 		 */
-		//$(".datepicker").datepicker();
+		$(".datepicker").datepicker({
+			language: "pt-BR",
+		    format: 'dd/mm/yyyy',
+		    autoclose: true
+		});
 		
 		/**
 		 * Close Dropdown menus when user clicks outside a menu (on the body)

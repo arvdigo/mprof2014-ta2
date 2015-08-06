@@ -69,6 +69,11 @@ form p:last-child input {
     margin-bottom: 0px;
 }
 
+.page-header{
+	  background-color: #eee;
+	  margin: 0px !important;
+}
+
 #Header {
 /* 	background-color: #049cd9; */
 /* 	background-repeat: no-repeat; */

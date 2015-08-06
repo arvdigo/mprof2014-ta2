@@ -1,33 +1,26 @@
 <li class="dropdown dropdown-btn">
 	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
    		<i class="glyphicon glyphicon-info-sign"></i>
-		<g:message code="default.info.label"/> <b class="caret"></b>
+		Info <b class="caret"></b>
 	</a>
 	
-	<ul class="dropdown-menu">
-		<%-- Note: Links to pages without controller are redirected in conf/UrlMappings.groovy --%>
+	<ul class="dropdown-menu">	
 		<li class="">
-			<a href="${createLink(uri: '/about')}">
+			<a href="${createLink(uri: '/inicio/sobre')}">
 				<i class="glyphicon glyphicon-info-sign"></i>
-				<g:message code="default.about.label"/>
+				Sobre
 			</a>
 		</li>
 		<li class="">
-			<a href="http://wordpress.com/signup/">
-				<i class="glyphicon glyphicon-align-justify"></i>
-				<i><g:message code="default.blog.label"/></i>
-			</a>
-		</li>
-		<li class="">
-			<a href="${createLink(uri: '/terms')}">
-				<i class="glyphicon glyphicon-exclamation-sign"></i>
-				<g:message code="default.terms.label"/>
-			</a>
-		</li>
-		<li class="">
-			<a href="${createLink(uri: '/contact')}">
+			<a href="${createLink(uri: '/inicio/equipe')}">
 				<i class="glyphicon glyphicon-envelope"></i>
-				<g:message code="default.contact.label"/>
+				Equipe
+			</a>
+		</li>
+		<li class="">
+			<a href="${createLink(uri: '/inicio/info')}">
+				<i class="glyphicon glyphicon-info-sign"></i>
+				Sistema
 			</a>
 		</li>
 	</ul>

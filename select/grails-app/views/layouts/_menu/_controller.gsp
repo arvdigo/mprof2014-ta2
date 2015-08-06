@@ -1,21 +1,17 @@
 <li class="dropdown">
-	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <span class="caret"></span></a>
 	<ul class="dropdown-menu">
-		<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-			<li class="controller">
-				<g:link controller="${c.logicalPropertyName}">
-					<g:if test="${c.fullName.contains('HomeController')}">
-						<i class="glyphicon glyphicon-home"></i>
-					</g:if>
-					<g:elseif test="${c.fullName.contains('DemoPageController')}">
-						<i class="glyphicon glyphicon-list-alt"></i>
-					</g:elseif>
-					<g:elseif test="${c.fullName.contains('DbdocController')}">
-						<i class="glyphicon glyphicon-cloud"></i>
-					</g:elseif>
-					${c.fullName.substring(c.fullName.lastIndexOf('.')+1)}
-				</g:link>
-			</li>
-		</g:each>
+		<li class="controller">
+			<g:link controller="inicio"><i class="glyphicon glyphicon-home"></i> Início</g:link>		
+			<g:link controller="campus"><i class="glyphicon glyphicon-list"></i> Campus</g:link>				
+			<g:link controller="curso"><i class="glyphicon glyphicon-list"></i> Curso</g:link>
+			<g:link controller="processo"><i class="glyphicon glyphicon-list"></i> Processo</g:link>
+			<g:link controller="oferta"><i class="glyphicon glyphicon-list"></i> Oferta</g:link>
+			<g:link controller="inscricao"><i class="glyphicon glyphicon-list"></i> Inscrição</g:link>
+			<g:link controller="inscricao" action="confirmarInscricao"><i class="glyphicon glyphicon-list"></i> Confirmar Inscrição</g:link>
+			<g:link controller="sala"><i class="glyphicon glyphicon-list"></i> Sala</g:link>
+			<g:link controller="usuario"><i class="glyphicon glyphicon-list"></i> Usuário</g:link>
+			<g:link controller="pessoa"><i class="glyphicon glyphicon-list"></i> Pessoa</g:link>
+		</li>
 	</ul>
 </li>

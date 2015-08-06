@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<!--[if lt IE 7 ]> <html lang="pt_BR" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="pt_BR" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="pt_BR" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="pt_BR" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="pt-BR" class="no-js"><!--<![endif]-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -18,31 +18,30 @@
 	</head>
 	<body>
 		<g:render template="/layouts/_menu/navbar"/>
-		<header id="Header" class="jumbotron masthead">
+		<header id="Header" class="page-header">
 			<div class="container">
 			<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
 			</div>
 		</header>
-	
+				
 		<div id="Content" class="container">
-			<!-- Main menu in one row (e.g., controller entry points -->
-			<g:if test="${!layout_nomainmenu}">
-				<g:render template="/layouts/_menu/menubar"/>
-			</g:if>
-			
-			<!-- Secondary menu in one row (e.g., actions for current controller) -->
+			<!-- menu in one row (e.g., actions for current controller) -->
 			<g:if test="${!layout_nosecondarymenu}">
-				<g:render template="/layouts/_menu/submenubar"/>														
+				<g:render template="/layouts/_menu/menubar"/>														
 			</g:if>
 		
 			<!-- print system messages (infos, warnings, etc) - not validation errors -->
 			<g:if test="${flash.message && !layout_noflashmessage}">
-				<div class="alert alert-info">${flash.message}</div>
+				<div class="alert alert-info margin-top-small">${flash.message}</div>
 			</g:if>
-		
+			<g:if test="${flash.error && !layout_noflasherror}">
+				<div class="alert alert-danger margin-top-small">${flash.error}</div>
+			</g:if>
+					
 			<!-- Show page's content -->
 			<g:layoutBody />
 			<g:pageProperty name="page.body" />
-		</div>	
+		</div>
+			
 	</body>
 </html>

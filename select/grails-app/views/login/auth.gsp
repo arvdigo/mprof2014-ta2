@@ -2,8 +2,6 @@
 <head>
 	<title><g:message code="springSecurity.login.title"/></title>
 	<meta name="layout" content="main" />
-
-	<g:set var="layout_nomainmenu"		value="${true}" scope="request"/>
 	<g:set var="layout_nosecondarymenu"	value="${true}" scope="request"/>
 </head>
 
@@ -32,15 +30,11 @@
 					</div>
 				</div>
 				
-				<div id="remember_me_holder" class="form-group">
-					<label for='remember_me' class="control-label"><g:message code="springSecurity.login.remember.me.label"/></label>
-					<div class="controls">
-						<bs:checkBox class="form-control col-md-4" name="${rememberMeParameter}" value="${hasCookie}" />
-					</div>
-				</div>
-				
 				<div class="form-group">
 					<input type='submit' id="submit" class="btn btn-success" value='${message(code: "springSecurity.login.button")}'/>
+					<g:link controller='pessoa' action="novaConta">    
+   						<input type="button"  class="btn btn-info" value="Criar Conta" class="button"/> 
+					</g:link>
 				</div>
 		</form>
 	</div>

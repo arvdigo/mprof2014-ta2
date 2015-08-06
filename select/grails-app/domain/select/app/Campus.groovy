@@ -19,6 +19,11 @@ class Campus {
 		this.nome = nome
 	}
 	
+	Campus(String nome) {
+		this()
+		this.nome = nome
+	}
+	
     static constraints = {
 		nome(nullable:false, blank:false)
 		cep(nullable:true, blank:true)

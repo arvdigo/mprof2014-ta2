@@ -8,7 +8,7 @@
 	<body>
 		<section id="create-campus" class="first">
 			<g:hasErrors bean="${campusInstance}">
-			<ul class="errors" role="alert">
+			<ul class="alert alert-warning" role="alert">
 				<g:eachError bean="${campusInstance}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
@@ -21,7 +21,7 @@
 				</fieldset>
 				<div class="form-actions margin-top-medium">
 					<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-					<button class="btn" type="reset">Cancelar</button>
+					<a href="${createLink(uri: '/campus/index')}" class="btn btn-default" role="button">Cancelar</a>
 				</div>
 			</g:form>
 		</section>
