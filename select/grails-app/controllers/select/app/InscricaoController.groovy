@@ -143,7 +143,8 @@ class InscricaoController {
 			   model:[inscricao:inscricao, processo:processo]
 		)
 	}
-		
+	
+	// Permissao para o candidato poder se inscrever
 	@Secured(['ROLE_CANDIDATO'])
 	@Transactional
 	def updateInscricao(Inscricao inscricao) {
