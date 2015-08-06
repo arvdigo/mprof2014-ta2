@@ -33,7 +33,10 @@ class BootStrap {
 		Campus campus01 = new Campus(nome: "IFNMG - Campus Januária").save(flush:true)		
 		Campus campus02 = new Campus(nome: "IFNMG - Campus Montes Claros").save(flush:true)
 		Campus campus03 = new Campus(nome: "IFNMG - Campus Pirapora").save(flush:true)
-		
+		Campus campus04 = new Campus(nome: "IFRS - Campus Bento Gonçalves").save(flush:true)
+		Campus campus05 = new Campus(nome: "IFRS - Campus Feliz").save(flush:true)
+		Campus campus06 = new Campus(nome: "IFRS - Campus Porto Alegre").save(flush:true)
+
 		//Cadastro de Oferta
 		Oferta oferta01 = new Oferta(vagas: 30, valor: 100, campus: campus01, processo: processo01, curso: curso01).save(flush:true)
 		Oferta oferta02 = new Oferta(vagas: 30, valor: 100, campus: campus01, processo: processo01, curso: curso02).save(flush:true)
