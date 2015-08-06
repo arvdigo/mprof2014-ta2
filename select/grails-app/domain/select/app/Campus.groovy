@@ -2,25 +2,35 @@ package select.app
 
 class Campus {
 
-	String nome
+	String nome	
 	String cep
-	String cidade
-	String estado
-	String endereco
-	String complemento
+	String logradouro
 	int	numero
+	String complemento
 	String bairro
+	String cidade
+	String estado	
 	
+	// Chaves:
 	static hasMany = [ofertas:Oferta, sala:Sala]	
+	
+	Campus(String nome) {
+		this()
+		this.nome = nome
+	}
 	
     static constraints = {
 		nome(nullable:false, blank:false)
-		cep(nullable:false, blank:false)
-		cidade(nullable:false, blank:false)
-		estado(nullable:false, blank:false)
-		endereco(nullable:false, blank:false)
-		complemento(nullable:true, blank:true)
+		cep(nullable:true, blank:true)
+		logradouro(nullable:true, blank:true)
 		numero(nullable:true, blank:true)
-		bairro(nullable:false, blank:false)		
+		complemento(nullable:true, blank:true)
+		bairro(nullable:true, blank:true)
+		cidade(nullable:true, blank:true)
+		estado(nullable:true, blank:true)
     }
+	
+	static mapping = {
+		version false
+	}
 }
