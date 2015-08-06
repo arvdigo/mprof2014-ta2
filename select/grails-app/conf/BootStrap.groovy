@@ -28,6 +28,7 @@ class BootStrap {
 		//Cadastro de processos
 		Processo processo01 = new Processo(descricao: "Segundo processo seletivo 2014", edital: "Edital Numero 35/2014", ano:2014 , data_inicial: "2014-06-01" , data_final: "2014-07-01").save(flush:true)
 		Processo processo02 = new Processo(descricao: "Primeiro processo seletivo 2014", edital: "Edital Numero 2/2015", ano:2015 , data_inicial: "2015-01-10", data_final: null).save(flush:true)
+		Processo processo03 = new Processo(descricao: "IFRS - Processo seletivo complementaro 2015", edital: "Edital Numero 325/2015", ano:2015 , data_inicial: "2015-08-1", data_final: null).save(flush:true)
 		
 		//Cadastro de Campus
 		Campus campus01 = new Campus(nome: "IFNMG - Campus Januária").save(flush:true)		
@@ -44,7 +45,10 @@ class BootStrap {
 		Oferta oferta04 = new Oferta(vagas: 30, valor: 100, campus: campus01, processo: processo02, curso: curso01).save(flush:true)
 		Oferta oferta05 = new Oferta(vagas: 30, valor: 100, campus: campus01, processo: processo02, curso: curso02).save(flush:true)
 		Oferta oferta06 = new Oferta(vagas: 30, valor: 100, campus: campus01, processo: processo02, curso: curso03).save(flush:true)
-		
+		Oferta oferta07 = new Oferta(vagas: 30, valor: 100, campus: campus04, processo: processo03, curso: curso02).save(flush:true)
+		Oferta oferta08 = new Oferta(vagas: 30, valor: 100, campus: campus05, processo: processo03, curso: curso03).save(flush:true)
+		Oferta oferta09 = new Oferta(vagas: 30, valor: 100, campus: campus06, processo: processo03, curso: curso04).save(flush:true)
+
 		//Cadastro de Salas
 		Sala sala01 = new Sala(descricao: "Sala 01", vagas: 5, campus: campus01).save(flush:true)
 		Sala sala02 = new Sala(descricao: "Sala 02", vagas: 5, campus: campus01).save(flush:true)
@@ -56,6 +60,9 @@ class BootStrap {
 		Sala sala08 = new Sala(descricao: "Sala 03", vagas: 5, campus: campus02).save(flush:true)
 		Sala sala09 = new Sala(descricao: "Sala 04", vagas: 5, campus: campus02).save(flush:true)
 		Sala sala010 = new Sala(descricao: "Sala 05", vagas: 5, campus: campus02).save(flush:true)
+		Sala sala011 = new Sala(descricao: "Sala 03", vagas: 10, campus: campus04).save(flush:true)
+		Sala sala012 = new Sala(descricao: "Sala 04", vagas: 10, campus: campus05).save(flush:true)
+		Sala sala013 = new Sala(descricao: "Sala 05", vagas: 10, campus: campus06).save(flush:true)
 
 		//Cadastro de pessoa	
 		Usuario usuario01 = new Usuario(username: "000.000.000-01", password: "123", enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true)
