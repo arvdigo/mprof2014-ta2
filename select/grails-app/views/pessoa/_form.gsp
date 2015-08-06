@@ -105,7 +105,7 @@
 			<g:message code="pessoa.cep.label" default="Cep" />
 			<span class="required-indicator">*</span>
 		</label>
-		<g:textField class="form-control" name="cep" required="" value="${pessoaInstance?.cep}"/>
+		<g:textField class="form-control" name="cep" required="" onchange="updateEndereco(this.value)" value="${pessoaInstance?.cep}"/>
 	</div>
 	
 	<div class="form-group ${hasErrors(bean: pessoaInstance, field: 'logradouro', 'error')} required">
@@ -155,4 +155,14 @@
 	</div>
 
 </fieldset>
-
+<g:javascript>
+    function updateEndereco(cep) {
+    	$.getJSON('http://api.postmon.com.br/v1/cep/' + cep ,               
+        	function(data) {
+            	$('#logradouro').val(data.logradouro)
+            	$('#bairro').val(data.bairro)
+            	$('#cidade').val(data.cidade)
+            	$('#estado').val(data.estado)
+            });
+    };
+</g:javascript>

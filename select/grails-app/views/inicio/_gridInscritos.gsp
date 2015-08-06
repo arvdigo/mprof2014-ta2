@@ -16,8 +16,9 @@
 			<td><g:formatBoolean boolean="${listInscrito.confirmado}" /></td>
 			<td>
 				<g:if test="${listInscrito.sala}">
-					${listInscrito.sala.campus.nome}: ${listInscrito.sala.descricao}</td>
+					${listInscrito.sala.campus.nome}: ${listInscrito.sala.descricao}
 				</g:if>	
+			</td>
 			<td class="text-center" style="vertical-align: middle;">
 				<g:if test="${!listInscrito.confirmado}">
 					<g:link class="glyphicon glyphicon-edit" controller="inscricao" action="alterarInscricao" id="${listInscrito.id}"></g:link>

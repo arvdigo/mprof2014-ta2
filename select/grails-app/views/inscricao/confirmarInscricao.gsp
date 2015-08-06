@@ -46,7 +46,7 @@
 				</fieldset>
 				<div class="form-actions margin-top-medium">
 					<g:submitButton name="create" class="btn btn-primary" value="Confirmar Inscrição" />
-					<a href="${createLink(uri: '/')}" class="btn btn-info" role="button">Cancelar</a>
+					<a href="${createLink(uri: '/')}" class="btn btn-default" role="button">Cancelar</a>
 				</div>
 			</g:form>
 		</section>

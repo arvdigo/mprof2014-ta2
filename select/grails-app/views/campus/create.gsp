@@ -21,7 +21,7 @@
 				</fieldset>
 				<div class="form-actions margin-top-medium">
 					<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-					<button class="btn" type="reset">Cancelar</button>
+					<a href="${createLink(uri: '/campus/index')}" class="btn btn-default" role="button">Cancelar</a>
 				</div>
 			</g:form>
 		</section>

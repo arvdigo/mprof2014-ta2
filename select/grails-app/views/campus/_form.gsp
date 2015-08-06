@@ -12,7 +12,7 @@
 	<label for="cep" class="control-label">
 		<g:message code="campus.cep.label" default="Cep" />
 	</label>
-	<g:textField class="form-control" name="cep" value="${campusInstance?.cep}"/>
+	<g:textField class="form-control" name="cep" onchange="updateEndereco(this.value)" value="${campusInstance?.cep}"/>
 </div>
 
 <div class="form-group ${hasErrors(bean: campusInstance, field: 'logradouro', 'error')} ">
@@ -26,7 +26,7 @@
 	<label for="numero" class="control-label">
 		<g:message code="campus.numero.label" default="Numero" />
 	</label>
-	<g:field class="form-control" name="numero" type="number" value="${campusInstance.numero}" required=""/>
+	<g:field class="form-control" name="numero" type="text" value="${campusInstance?.numero}" required=""/>
 </div>
 
 <div class="form-group ${hasErrors(bean: campusInstance, field: 'complemento', 'error')} ">
@@ -56,3 +56,15 @@
 	</label>
 	<g:textField class="form-control" name="estado" value="${campusInstance?.estado}"/>
 </div>
+
+<g:javascript>
+    function updateEndereco(cep) {
+    	$.getJSON('http://api.postmon.com.br/v1/cep/' + cep ,               
+        	function(data) {
+            	$('#logradouro').val(data.logradouro)
+            	$('#bairro').val(data.bairro)
+            	$('#cidade').val(data.cidade)
+            	$('#estado').val(data.estado)
+            });
+    };
+</g:javascript>
