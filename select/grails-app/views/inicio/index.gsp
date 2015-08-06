@@ -23,7 +23,12 @@
 			    <div class="row">
 			      <div class="col-sm-5">
 					<div class="well">
-						<g:render template="dadosPessoa"/>
+						<g:if test="${pessoa?.cpf}">
+							<g:render template="dadosPessoa"/>
+						</g:if>
+						<g:else>
+							&nbsp;O usuário "${sec.username()}" não é uma pessoa no sistema
+						</g:else>
     				</div>
 			      </div>
 			      <div class="col-sm-7">

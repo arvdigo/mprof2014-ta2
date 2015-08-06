@@ -8,6 +8,7 @@
 			<g:link controller="processo"><i class="glyphicon glyphicon-list"></i> Processo</g:link>
 			<g:link controller="oferta"><i class="glyphicon glyphicon-list"></i> Oferta</g:link>
 			<g:link controller="inscricao"><i class="glyphicon glyphicon-list"></i> Inscrição</g:link>
+			<g:link controller="inscricao" action="confirmarInscricao"><i class="glyphicon glyphicon-list"></i> Confirmar Inscrição</g:link>
 			<g:link controller="sala"><i class="glyphicon glyphicon-list"></i> Sala</g:link>
 			<g:link controller="usuario"><i class="glyphicon glyphicon-list"></i> Usuário</g:link>
 			<g:link controller="pessoa"><i class="glyphicon glyphicon-list"></i> Pessoa</g:link>

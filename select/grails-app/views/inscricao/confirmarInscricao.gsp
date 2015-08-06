@@ -17,16 +17,12 @@
 			</ul>
 			</g:hasErrors>
 			
-			<div class="alert alert-info">
-  				<strong>Info!</strong> Use o cpf do candidato para confirmar a inscrição
+			<div class="alert alert-warning">
+  				<strong>Info!!</strong> Use o CPF e o número da inscrição para confirmar a inscrição do candidato
 			</div>
-
-			<div class="container">
-    	    <div class="content">
-     		<div class="row">
 			<g:form class="form-horizontal" url="[resource:inscricao, action:'confirmar']" >
 				<fieldset class="form">
-					 <div class="clearfix">
+					 <div class="form-group">
 						<label for="cpf" class="control-label">
 							<g:message code="pessoa.cpf.label" default="CPF" />
 							<span class="required-indicator">*</span>
@@ -40,8 +36,12 @@
             					onSuccess:'updateInscricoes(data)')}" 
                 		/>												
 					</div>
-					<div class="clearfix">
-						<g:select name="inscricao" id="inscricao" from=""></g:select>
+					<div class="form-group">
+						<label for="cpf" class="control-label">
+							<g:message code="pessoa.inscricao.label" default="Número da Inscrição" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:select class="form-control"  name="id" id="inscricao" noSelection="${['null':'Inscrição...']}" from=""></g:select>
   					</div>
 				</fieldset>
 				<div class="form-actions margin-top-medium">
@@ -49,9 +49,6 @@
 					<a href="${createLink(uri: '/')}" class="btn btn-info" role="button">Cancelar</a>
 				</div>
 			</g:form>
-      		</div>
-    		</div>
-  			</div> <!-- /container -->
 		</section>
 		<g:javascript>
 			function updateInscricoes(data) {
@@ -72,25 +69,20 @@
 					// Rebuild the select
 					for (var i=0; i < inscricoes.length; i++) {
 						var inscricao = inscricoes[i]
-						var opt = document.createElement('option');
-						opt.text = inscricao.oferta.id
-						opt.value = inscricao.id
-					  	try {
-					    	rselect.add(opt, null) // standards compliant; doesn't work in IE
-					  	}
-				  		catch(ex) {
-				    		rselect.add(opt) // IE only
+						if(!inscricao.confirmado) {
+							var opt = document.createElement('option');
+							opt.text = inscricao.id
+							opt.value = inscricao.id
+					  		try {
+					    		rselect.add(opt, null) // standards compliant; doesn't work in IE
+					  		}
+				  			catch(ex) {
+				    			rselect.add(opt) // IE only
+				  			}
 				  		}
 					}
 				}
 			}
-		
-			
-			// This is called when the page loads to initialize city
-			//var zselect = document.getElementById('cpf.name')
-			//var zopt = zselect.options[zselect.selectedIndex]
-			//${remoteFunction(controller:"inscricao", action:"findOferta", params:"'cpf=' + zopt.value", onComplete:"updateInscricoes(data)")}
-		
 		</g:javascript>
 	</body>
 </html>

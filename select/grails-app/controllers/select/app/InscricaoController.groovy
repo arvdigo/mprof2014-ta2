@@ -206,4 +206,24 @@ class InscricaoController {
 		
 	}
 	
+	@Transactional
+	def confirmar(Inscricao inscricao) {
+		println(inscricao)
+		if (inscricao == null) {
+			notFound()
+			return
+		}
+		
+		inscricao.confirmado = true
+		inscricao.save(flush:true)
+
+		request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Inscricao.label', default: 'Inscricao'), inscricao.id])
+                redirect action: "confirmarInscricao", method: "GET"
+            }
+            '*'{ respond inscricao, [status: OK] }
+        }
+	}
+	
 }
